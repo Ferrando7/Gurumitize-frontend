@@ -1,5 +1,5 @@
-# sebamaster-Gurumitize-frontend application
-Forked from a Movies example application based on AngularJS(https://github.com/sebischair/sebamaster-movie-frontend). Backend can be found [here](https://github.com/sebischair/sebamaster-movie-backend)
+# Gurumitize-frontend application
+Imported from a Movies example application based on AngularJS(https://github.com/sebischair/sebamaster-movie-frontend). Backend can be found [here](https://github.com/sebischair/sebamaster-movie-backend)
 
 ## Prerequisites
 
@@ -10,27 +10,27 @@ Both for the front end and the back end check:
 
 ## Getting Started
 
-To get you started you can simply clone the [sebamaster-gurumitize-frontend](https://github.com/Ferrando7/sebamaster-gurumitize-frontend/) repository and install all its dependencies:
+To get you started you can simply clone the [Gurumitize-frontend](https://github.com/Ferrando7/Gurumitize-frontend/) repository and install all its dependencies:
 
 ### Prerequisites
 
-You need git to clone the [sebamaster-gurumitize-frontend](https://github.com/Ferrando7/sebamaster-gurumitize-frontend/)  repository. You can get git from [http://git-scm.com/](http://git-scm.com/).
+You need git to clone the [Gurumitize-frontend](https://github.com/Ferrando7/Gurumitize-frontend/)  repository. You can get git from [http://git-scm.com/](http://git-scm.com/).
 
-We also use a number of node.js tools to initialize and test [sebamaster-gurumitize-frontend](https://github.com/Ferrando7/sebamaster-gurumitize-frontend/) . You must have node.js and its package manager (npm) installed.  You can get them from [http://nodejs.org/](http://nodejs.org/).
+We also use a number of node.js tools to initialize and test [Gurumitize-frontend](https://github.com/Ferrando7/Gurumitize-frontend/) . You must have node.js and its package manager (npm) installed.  You can get them from [http://nodejs.org/](http://nodejs.org/).
 
 ### Clone Movie Project
 
-Clone the [sebamaster-gurumitize-frontend](https://github.com/Ferrando7/sebamaster-gurumitize-frontend/)  repository using [git](http://git-scm.com/):
+Clone the [Gurumitize-frontend](https://github.com/Ferrando7/Gurumitize-frontend/)  repository using [git](http://git-scm.com/):
 
 ```
-git clone https://github.com/Ferrando7/sebamaster-gurumitize-frontend.git
-cd sebamaster-gurumitize-frontend
+git clone https://github.com/Ferrando7/Gurumitize-frontend.git
+cd Gurumitize-frontend
 ```
 
-If you just want to start a new project without the [sebamaster-gurumitize-frontend](https://github.com/Ferrando7/sebamaster-gurumitize-frontend/)  commit history then you can do:
+If you just want to start a new project without the [Gurumitize-frontend](https://github.com/Ferrando7/Gurumitize-frontend/)  commit history then you can do:
 
 ```bash
-git clone -b serverless --depth=1 https://github.com/Ferrando7/sebamaster-gurumitize-frontend.git <your-project-name>
+git clone -b serverless --depth=1 https://github.com/Ferrando7/Gurumitize-frontend.git <your-project-name>
 ```
 
 The `depth=1` tells git to only pull down one commit worth of historical data.
