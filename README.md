@@ -30,7 +30,7 @@ cd sebamaster-gurumitize-frontend
 If you just want to start a new project without the [sebamaster-gurumitize-frontend](https://github.com/Ferrando7/sebamaster-gurumitize-frontend/)  commit history then you can do:
 
 ```bash
-git clone --depth=1 https://github.com/Ferrando7/sebamaster-gurumitize-frontend.git <your-project-name>
+git clone -b serverless --depth=1 https://github.com/Ferrando7/sebamaster-gurumitize-frontend.git <your-project-name>
 ```
 
 The `depth=1` tells git to only pull down one commit worth of historical data.
