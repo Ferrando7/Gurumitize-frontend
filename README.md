@@ -1,5 +1,5 @@
-# sebamaster-movie-frontend application
-Movies example application based on AngularJS. Backend can be found [here](https://github.com/sebischair/sebamaster-movie-backend)
+# sebamaster-Gurumitize-frontend application
+Forked from the Movies example application based on AngularJS (https://github.com/sebischair/sebamaster-movie-frontend). Backend can be found [here](https://github.com/sebischair/sebamaster-movie-backend)
 
 ## Prerequisites
 
