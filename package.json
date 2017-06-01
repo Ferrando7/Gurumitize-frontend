@@ -1,18 +1,18 @@
 {
-  "name": "sebamaster-movie-frontend",
+  "name": "sebamaster-gurumitize-frontend",
   "version": "1.0.0",
-  "description": "Movies example application based on AngularJS 1.5+",
+  "description": "Mentoring application based on AngularJS 1.5+",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/sebischair/sebamaster-movie-frontend"
+    "url": "https://github.com/Ferrando7/Gurumitize-frontend"
   },
   "author": "Adrian Hernandez-Mendez <adrian.hernandez@tum.de>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sebischair/sebamaster-movie-frontend/issues"
+    "url": "https://github.com/Ferrando7/Gurumitize-frontend/issues"
   },
-  "homepage": "https://github.com/sebischair/sebamaster-movie-frontend#readme",
+  "homepage": "https://github.com/Ferrando7/Gurumitize-frontend#readme",
   "devDependencies": {
     "babel-core": "^6.11.4",
     "babel-loader": "^6.2.4",
