@@ -1,9 +1,9 @@
 
 'use strict';
 
-import template from './view-movie-create.template.html';
+import template from './view-event-create.template.html';
 
-import MoviesService from './../../services/movies/movies.service';
+import MoviesService from './../../services/movies/events.service';
 import UserService from './../../services/user/user.service';
 
 class ViewEventCreateComponent {
@@ -32,7 +32,7 @@ class ViewEventCreateComponentController{
     save() {
         let user = this.UserService.getCurrentUser();
 
-        this.movie['user'] = user['_id'];
+        this.event['user'] = user['_id'];
         this.EventsService.create(this.event).then(data => {
             let _id = data['_id'];
             this.$state.go('events',{ eventId:_id});
