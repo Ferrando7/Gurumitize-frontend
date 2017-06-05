@@ -1,55 +1,55 @@
 
 'use strict';
 
-import template from './view-movies.template.html';
-import MoviesService from './../../services/movies/movies.service';
+import template from './view-events.template.html';
+import EventsService from './../../services/events/events.service';
 import UserService from './../../services/user/user.service';
 
 
-class ViewMoviesComponent {
+class ViewEventsComponent {
     constructor(){
-        this.controller = ViewMoviesComponentController;
+        this.controller = ViewEventsComponentController;
         this.template = template;
         this.bindings = {
-            movies: '<',
+            events: '<',
         }
     }
 
     static get name() {
-        return 'viewMovies';
+        return 'viewEvents';
     }
 
 
 }
 
-class ViewMoviesComponentController{
-    constructor($state,$scope,MoviesService,UserService){
+class ViewEventsComponentController{
+    constructor($state,$scope,EventsService,UserService){
         this.$state = $state;
         this.$scope = $scope;
-        this.MoviesService = MoviesService;
+        this.EventsService = EventsService;
         this.UserService = UserService;
 
     }
 
-    details (movie) {
-        let _id = movie['_id'];
-        this.$state.go('movie',{ movieId:_id});
+    details (event) {
+        let _id = event['_id'];
+        this.$state.go('event',{ eventId:_id});
     };
 
-    edit (movie) {
+    edit (event) {
 
         if (this.UserService.isAuthenticated()) {
-            let _id = movie['_id'];
-            this.$state.go('movieEdit',{ movieId:_id});
+            let _id = event['_id'];
+            this.$state.go('eventEdit',{ eventId:_id});
         } else {
             this.$state.go('login',{});
         }
     };
 
-    newMovie(){
+    newEvent(){
 
         if (this.UserService.isAuthenticated()) {
-            this.$state.go('movieAdd',{});
+            this.$state.go('eventAdd',{});
         } else {
             this.$state.go('login',{});
         }
@@ -57,13 +57,13 @@ class ViewMoviesComponentController{
     }
 
 
-    delete(movie) {
+    delete(event) {
         if (this.UserService.isAuthenticated()) {
-            let _id = movie['_id'];
+            let _id = event['_id'];
 
-            this.MoviesService.delete(_id).then(response => {
-                let index = this.movies.map(x => x['_id']).indexOf(_id);
-                this.movies.splice(index, 1);
+            this.EventsService.delete(_id).then(response => {
+                let index = this.events.map(x => x['_id']).indexOf(_id);
+                this.events.splice(index, 1);
                 this.$scope.$apply();
             })
 
@@ -74,9 +74,9 @@ class ViewMoviesComponentController{
 
 
     static get $inject(){
-        return ['$state', '$scope' ,MoviesService.name, UserService.name];
+        return ['$state', '$scope' ,EventsService.name, UserService.name];
     }
 
 }
 
-export default ViewMoviesComponent;
+export default ViewEventsComponent;
