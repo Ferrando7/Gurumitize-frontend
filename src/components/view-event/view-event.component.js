@@ -33,7 +33,7 @@ class ViewEventComponentController{
     edit () {
 
         if (this.UserService.isAuthenticated()) {
-            let _id = this.movie['_id'];
+            let _id = this.event['_id'];
             this.$state.go('eventEdit',{ eventId:_id});
         } else {
             this.$state.go('login',{});
