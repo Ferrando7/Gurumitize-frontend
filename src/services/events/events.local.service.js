@@ -1,21 +1,21 @@
 'use strict';
 
-import MoviesAPISimulator from './movies.api.simulator';
+import EventsAPISimulator from './events.api.simulator';
 
 
-export default class MoviesLocalService {
+export default class EventsLocalService {
 
     constructor() {
 
     }
 
     static get name(){
-        return 'moviesService';
+        return 'eventsService';
     }
 
 
     list(){
-       return MoviesAPISimulator.getMoviesAsync().then(responce => {
+       return EventsAPISimulator.getEventsAsync().then(responce => {
             return new Promise((resolve, reject) => {
                 resolve(responce.data);
             });
@@ -25,7 +25,7 @@ export default class MoviesLocalService {
 
 
     get(id){
-        return MoviesAPISimulator.getMovieByIdAsync(id).then(responce => {
+        return EventsAPISimulator.getEventByIdAsync(id).then(responce => {
             return new Promise((resolve, reject) => {
                 resolve(responce.data);
             });
@@ -34,8 +34,8 @@ export default class MoviesLocalService {
 
     }
 
-    create(movie){
-        return MoviesAPISimulator.createMovie(movie).then(responce => {
+    create(event){
+        return EventsAPISimulator.createEvent(event).then(responce => {
             return new Promise((resolve, reject) => {
                 resolve(responce.data);
             });
@@ -45,7 +45,7 @@ export default class MoviesLocalService {
     }
 
     delete(id){
-        return MoviesAPISimulator.deleteMovie(id).then(responce => {
+        return EventsAPISimulator.deleteEvent(id).then(responce => {
             return new Promise((resolve, reject) => {
                 resolve(responce.status);
             });
@@ -54,8 +54,8 @@ export default class MoviesLocalService {
 
     }
 
-    update(movie){
-        return MoviesAPISimulator.updateMovie(movie).then(responce => {
+    update(event){
+        return EventsAPISimulator.updateEvent(event).then(responce => {
             return new Promise((resolve, reject) => {
                 resolve(responce.data);
             });
