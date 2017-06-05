@@ -2,8 +2,8 @@
 
 import angular from 'angular';
 
-import ViewMovieComponent from './view-movie.component';
+import ViewEventComponent from './view-event.component';
 
 
-export default angular.module('ViewMovie', [])
-    .component(ViewMovieComponent.name, new ViewMovieComponent);
+export default angular.module('ViewEvent', [])
+    .component(ViewEventComponent.name, new ViewEventComponent);

@@ -1,31 +1,31 @@
 
 'use strict';
 
-import template from './view-movie.template.html';
-import MoviesService from './../../services/movies/movies.service';
+import template from './view-event.template.html';
+import EventsService from './../../services/events/events.service';
 import UserService from './../../services/user/user.service';
 
-class ViewMovieComponent {
+class ViewEventComponent {
     constructor(){
-        this.controller = ViewMovieComponentController;
+        this.controller = ViewEventComponentController;
         this.template = template;
         this.bindings = {
-            movie: '<',
+            event: '<',
         }
 
     }
 
     static get name() {
-        return 'viewMovie';
+        return 'viewEvent';
     }
 
 
 }
 
-class ViewMovieComponentController{
-    constructor($state,MoviesService,UserService){
+class ViewEventComponentController{
+    constructor($state,EventsService,UserService){
         this.$state = $state;
-        this.MoviesService = MoviesService;
+        this.EventsService = EventsService;
         this.UserService = UserService;
 
     }
@@ -34,7 +34,7 @@ class ViewMovieComponentController{
 
         if (this.UserService.isAuthenticated()) {
             let _id = this.movie['_id'];
-            this.$state.go('movieEdit',{ movieId:_id});
+            this.$state.go('eventEdit',{ eventId:_id});
         } else {
             this.$state.go('login',{});
         }
@@ -44,10 +44,10 @@ class ViewMovieComponentController{
 
     delete() {
         if (this.UserService.isAuthenticated()) {
-            let _id = this.movie['_id'];
+            let _id = this.event['_id'];
 
-            this.MoviesService.delete(_id).then(response => {
-                this.$state.go('movies',{});
+            this.EventsService.delete(_id).then(response => {
+                this.$state.go('events',{});
             });
         } else {
             this.$state.go('login',{});
@@ -57,25 +57,25 @@ class ViewMovieComponentController{
 
     getPosterURL(){
         let posterURL = 'http://placehold.it/32x32';
-        if (this.movie.hasOwnProperty('posters')) {
-            if (this.movie.posters.hasOwnProperty('thumbnail')) {
-                posterURL = this.movie.posters.thumbnail;
-            } else if (this.movie.posters.hasOwnProperty('profile')) {
-                posterURL = this.movie.posters.profile;
-            } else if (this.movie.posters.hasOwnProperty('detailed')) {
-                posterURL = this.movie.posters.detailed;
+        if (this.event.hasOwnProperty('posters')) {
+            if (this.event.posters.hasOwnProperty('thumbnail')) {
+                posterURL = this.event.posters.thumbnail;
+            } else if (this.event.posters.hasOwnProperty('profile')) {
+                posterURL = this.event.posters.profile;
+            } else if (this.event.posters.hasOwnProperty('detailed')) {
+                posterURL = this.event.posters.detailed;
             } else {
-                posterURL = this.movie.posters.original;
+                posterURL = this.event.posters.original;
             }
         }
         return posterURL;
     }
 
     static get $inject(){
-        return ['$state', MoviesService.name, UserService.name];
+        return ['$state', EventsService.name, UserService.name];
     }
 
 }
 
 
-export default ViewMovieComponent;
+export default ViewEventComponent;
