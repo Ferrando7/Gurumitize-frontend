@@ -3,7 +3,7 @@
 
 import template from './view-event-create.template.html';
 
-import MoviesService from './../../services/movies/events.service';
+import EventsService from './../../services/events/events.service';
 import UserService from './../../services/user/user.service';
 
 class ViewEventCreateComponent {
