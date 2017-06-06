@@ -106,7 +106,7 @@ export default function config ($stateProvider, $urlRouterProvider){
             component: RegisterComponent.name,
         })
         .state('profile', {
-            url: '/profile/:userID',
+            url: '/profile',
             component: ProfileComponent.name,
         })
 

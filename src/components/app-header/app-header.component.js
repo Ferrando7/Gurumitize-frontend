@@ -60,6 +60,10 @@ class AppHeaderComponentController{
         this.$state.go('movies',{});
     }
 
+    profile(){
+        this.$state.go('profile',{});
+    }
+
     static get $inject(){
         return ['$state', UserService.name];
     }
