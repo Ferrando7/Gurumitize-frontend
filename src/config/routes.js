@@ -89,7 +89,7 @@ export default function config ($stateProvider, $urlRouterProvider){
             }
 
         })
-        .state('movieEdit', {
+        .state('eventEdit', {
             url: '/events/:eventId/edit',
             component: EventEditComponent.name,
             resolve: {
