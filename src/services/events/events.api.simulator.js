@@ -2,7 +2,7 @@
 //https://stackoverflow.com/questions/10593337/is-there-any-way-to-create-mongodb-like-id-strings-without-mongodb
 const ObjectId = (m = Math, d = Date, h = 16, s = s => m.floor(s).toString(h)) => s(d.now() / 1000) + ' '.repeat(h).replace(/./g, () => s(m.random() * h));
 
-let movies = [
+let events = [
     {
         "_id": "56df0ee733c74ce68724c433",
         "id": "771405216",
@@ -997,16 +997,16 @@ let movies = [
     }
 ];
 
-export default class MoviesAPISimulator {
+export default class EventsAPISimulator {
     constructor(){}
 
-    static getMoviesAsync () {
+    static getEventsAsync () {
         return new Promise((resolve, reject) => {
             // We call resolve(...) when what we were doing made async successful, and reject(...) when it failed.
             // In this example, we use setTimeout(...) to simulate async code.
             // In reality, you will probably be using something like XHR or an HTML5 API.
             setTimeout(function(){
-                let response = { data: [...movies] };
+                let response = { data: [...events] };
                 resolve(response); // Yay! Everything went well!
             }, 250);
         });
@@ -1014,35 +1014,35 @@ export default class MoviesAPISimulator {
     };
 
 
-    static getMovieByIdAsync (id) {
+    static getEventByIdAsync (id) {
         return new Promise((resolve, reject) => {
             // We call resolve(...) when what we were doing made async successful, and reject(...) when it failed.
             // In this example, we use setTimeout(...) to simulate async code.
             // In reality, you will probably be using something like XHR or an HTML5 API.
             setTimeout(function(){
 
-                let movie = {};
-                let movieIndex = movies.map(movie => movie['_id']).indexOf(id);
-                if (movieIndex > -1) movie = movies[movieIndex];
+                let event = {};
+                let eventIndex = events.map(event => event['_id']).indexOf(id);
+                if (eventIndex > -1) event = events[eventIndex];
 
-                let response = { data: Object.assign({},movie)};
+                let response = { data: Object.assign({},event)};
                 resolve(response); // Yay! Everything went well!
             }, 250);
         });
 
     };
 
-    static createMovie (movie) {
+    static createEvent (event) {
         return new Promise((resolve, reject) => {
             // We call resolve(...) when what we were doing made async successful, and reject(...) when it failed.
             // In this example, we use setTimeout(...) to simulate async code.
             // In reality, you will probably be using something like XHR or an HTML5 API.
             setTimeout(function(){
 
-                let _movie  = Object.assign({},movie, {'_id': ObjectId()});
-                movies.push(_movie);
+                let _event  = Object.assign({},event, {'_id': ObjectId()});
+                events.push(_event);
 
-                let response = { data: _movie };
+                let response = { data: _event };
                 resolve(response); // Yay! Everything went well!
             }, 250);
         });
@@ -1050,15 +1050,15 @@ export default class MoviesAPISimulator {
 
     };
 
-    static deleteMovie (id) {
+    static deleteEvent (id) {
         return new Promise((resolve, reject) => {
             // We call resolve(...) when what we were doing made async successful, and reject(...) when it failed.
             // In this example, we use setTimeout(...) to simulate async code.
             // In reality, you will probably be using something like XHR or an HTML5 API.
             setTimeout(function(){
 
-                let movieIndex = movies.map(movie => movie['_id']).indexOf(id);
-                movies.splice(movieIndex,1); //Mutation
+                let eventIndex = events.map(event => event['_id']).indexOf(id);
+                events.splice(eventIndex,1); //Mutation
 
 
                 let response = { status: 200 };
@@ -1068,17 +1068,17 @@ export default class MoviesAPISimulator {
 
     };
 
-    static updateMovie (movie) {
+    static updateEvent (event) {
         return new Promise((resolve, reject) => {
             // We call resolve(...) when what we were doing made async successful, and reject(...) when it failed.
             // In this example, we use setTimeout(...) to simulate async code.
             // In reality, you will probably be using something like XHR or an HTML5 API.
             setTimeout(function(){
 
-                let movieIndex = movies.map(_movie => _movie['_id']).indexOf(movie['_id']);
-                movies[movieIndex] =  Object.assign({},movies[movieIndex], movie);
+                let eventIndex = events.map(_event => _event['_id']).indexOf(event['_id']);
+                events[eventIndex] =  Object.assign({},events[eventIndex], event);
 
-                let response = { data: movies[movieIndex] };
+                let response = { data: events[eventIndex] };
                 resolve(response); // Yay! Everything went well!
             }, 250);
         });
