@@ -25,13 +25,14 @@ import ViewEvent from './components/view-event/view-event';
 import ViewEventEdit from './components/view-event-edit/view-event-edit';
 import ViewEventCreate from './components/view-event-create/view-event-create';
 import ViewLogin from './components/view-login/view-login';
+import ViewRegister from './components/view-register/view-register';
 
 let app = angular.module('app', [
     uiRouter,
     angularMaterial,
     ngMdIcons,
     UserService.name,
-    MoviesService.name
+    MoviesService.name,
     EventsService.name,
     AppContent.name,
     ViewMovies.name,
@@ -42,7 +43,7 @@ let app = angular.module('app', [
     ViewEvent.name,
     ViewEventEdit.name,
     ViewEventCreate.name,
-
+    ViewRegister.name,
     ViewLogin.name
 ]);
 
