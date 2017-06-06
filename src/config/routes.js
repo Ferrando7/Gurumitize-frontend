@@ -4,9 +4,14 @@ import MoviesComponent from './../components/view-movies/view-movies.component';
 import MovieComponent from './../components/view-movie/view-movie.component';
 import MovieEditComponent from './../components/view-movie-edit/view-movie-edit.component';
 import MovieCreateComponent from './../components/view-movie-create/view-movie-create.component';
+import EventsComponent from './../components/view-events/view-events.component';
+import EventComponent from './../components/view-event/view-event.component';
+import EventEditComponent from './../components/view-event-edit/view-event-edit.component';
+import EventCreateComponent from './../components/view-event-create/view-event-create.component';
 import LoginComponent from './../components/view-login/view-login.component';
 
 import MoviesService from './../services/movies/movies.service';
+import EventsService from './../services/events/events.service';
 
 
 resolveMovie.$inject = ['$stateParams', MoviesService.name];
