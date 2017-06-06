@@ -13,7 +13,7 @@ export default function middlewares ($httpProvider,$windowProvider,$qProvider,$s
         return {
             'request': (config) => {
 
-               /*
+                /*
 
                 //Making a request to the API Server
                 if(config.url.indexOf(API_URL) === 0) {
