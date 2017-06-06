@@ -24,12 +24,23 @@ function resolveMovies(moviesService){
     return moviesService.list();
 }
 
+resolveEvent.$inject = ['$stateParams', EventsService.name];
+function resolveEvent($stateParams,eventsService){
+    return eventsService.get($stateParams.eventId);
+}
+
+resolveEvents.$inject = [EventsService.name];
+function resolveEvents(eventsService){
+    return eventsService.list();
+}
+
 
 config.$inject = ['$stateProvider', '$urlRouterProvider'];
 export default function config ($stateProvider, $urlRouterProvider){
 
     // For any unmatched url, redirect to /home
     $urlRouterProvider.otherwise("/movies");
+    //$urlRouterProvider.otherwise("/events");
 
     $stateProvider
         .state('movies', {
@@ -56,6 +67,32 @@ export default function config ($stateProvider, $urlRouterProvider){
             component: MovieEditComponent.name,
             resolve: {
                 movie : resolveMovie
+            }
+        })
+        .state('events', {
+            url: '/events',
+            component: EventsComponent.name,
+            resolve: {
+                movies : resolveEvents
+            }
+        })
+        .state('eventAdd', {
+            url: '/events/new',
+            component: EventCreateComponent.name
+        })
+        .state('event', {
+            url: '/events/:eventId',
+            component: EventComponent.name,
+            resolve: {
+                event : resolveEvent
+            }
+
+        })
+        .state('movieEdit', {
+            url: '/events/:eventId/edit',
+            component: EventEditComponent.name,
+            resolve: {
+                event : resolveEvent
             }
         })
         .state('login', {
