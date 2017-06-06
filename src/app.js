@@ -31,7 +31,8 @@ let app = angular.module('app', [
     angularMaterial,
     ngMdIcons,
     UserService.name,
-    MoviesService.name,
+    MoviesService.name
+    EventsService.name,
     AppContent.name,
     ViewMovies.name,
     ViewMovie.name,
