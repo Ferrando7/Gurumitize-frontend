@@ -10,6 +10,7 @@ import EventEditComponent from './../components/view-event-edit/view-event-edit.
 import EventCreateComponent from './../components/view-event-create/view-event-create.component';
 import LoginComponent from './../components/view-login/view-login.component';
 import RegisterComponent from './../components/view-register/view-register.component';
+import ProfileComponent from './../components/view-profile/view-profile.component';
 
 import MoviesService from './../services/movies/movies.service';
 import EventsService from './../services/events/events.service';
@@ -103,6 +104,10 @@ export default function config ($stateProvider, $urlRouterProvider){
         .state('register', {
             url: '/register',
             component: RegisterComponent.name,
+        })
+        .state('profile', {
+            url: '/profile/:userID',
+            component: ProfileComponent.name,
         })
 
 
