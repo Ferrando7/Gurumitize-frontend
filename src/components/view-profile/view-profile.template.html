@@ -1,29 +1,14 @@
-<div layout="column" layout-padding="">
-    <span flex="20"></span>
-    <md-content class="profile-form" layout="row" flex="35">
-        <span flex="35"></span>
-        <md-card flex="30">
-            <md-card-content>
-                <form name="ProfileForm">
-                    <md-input-container class="md-block">
-                        <label>Login</label>
-                        <input type="text" name="username" ng-model="$ctrl.login.username" placeholder="login" required=""/>
-                        <div ng-messages="ProfileForm.username.$error" role="alert" multiple="">
-                            <div ng-message="required">Please enter your username.</div>
-                        </div>
-                    </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>Password</label>
-                        <input type="password" name="password" ng-model="$ctrl.login.password" placeholder="password" required="" md-maxlength="64"/>
-                        <div ng-messages="LoginForm.password.$error" role="alert" multiple="">
-                            <div ng-message="required">Please enter your password.</div>
-                        </div>
-                    </md-input-container>
-                    <md-button ng-disabled="!LoginForm.$valid" ng-click="$ctrl.submit()" class="md-raised md-primary">&nbsp Login &nbsp</md-button>
-                </form>
-            </md-card-content>
-        </md-card>
-        <span flex></span>
+<div layout="column" layout-padding>
+    <md-content class="md-no-momentum">
+        <br/>
+        <form name="profileForm">
+            <md-input-container class="md-icon-float md-block">
+                <label>Title</label>
+                <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
+                <input ng-model="$ctrl.movie.title" type="text">
+            </md-input-container>
+
+        </form>
     </md-content>
-    <span flex></span>
+
 </div>
