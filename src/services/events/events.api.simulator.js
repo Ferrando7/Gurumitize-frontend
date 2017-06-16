@@ -8,6 +8,7 @@ let events = [
         "id": "771405216",
         "title": "The Choice",
         "year": 2016,
+        "date":'2015-12-15T23:00:00.000Z',
         "mpaa_rating": "PG-13",
         "runtime": 109,
         "critics_consensus": "",
