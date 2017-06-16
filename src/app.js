@@ -8,7 +8,6 @@ import 'angular-material/angular-material.css';
 
 import ngMdIcons from 'angular-material-icons';
 
-import MoviesService from './services/movies/movies';
 import EventsService from './services/events/events';
 import UserService from './services/user/user';
 
@@ -16,10 +15,6 @@ import Routes from './config/routes';
 import Middlewares from './config/middlewares';
 
 import AppContent from './components/app-content/app-content';
-import ViewMovies from './components/view-movies/view-movies';
-import ViewMovie from './components/view-movie/view-movie';
-import ViewMovieEdit from './components/view-movie-edit/view-movie-edit';
-import ViewMovieCreate from './components/view-movie-create/view-movie-create';
 import ViewEvents from './components/view-events/view-events';
 import ViewEvent from './components/view-event/view-event';
 import ViewEventEdit from './components/view-event-edit/view-event-edit';
@@ -33,13 +28,8 @@ let app = angular.module('app', [
     angularMaterial,
     ngMdIcons,
     UserService.name,
-    MoviesService.name,
     EventsService.name,
     AppContent.name,
-    ViewMovies.name,
-    ViewMovie.name,
-    ViewMovieEdit.name,
-    ViewMovieCreate.name,
     ViewEvents.name,
     ViewEvent.name,
     ViewEventEdit.name,

@@ -41,9 +41,8 @@ class AppHeaderComponentController{
         return user.username;
     }
 
-
     goHome(){
-        this.$state.go('movies',{});
+        this.$state.go('events',{});
     }
 
     login(){
@@ -54,10 +53,9 @@ class AppHeaderComponentController{
         this.$state.go('register',{});
     }
 
-
     logout(){
         this.UserService.logout();
-        this.$state.go('movies',{});
+        this.$state.go('events',{});
     }
 
     profile(){
