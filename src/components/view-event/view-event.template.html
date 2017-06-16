@@ -18,7 +18,10 @@
 
             <span class="md-headline">{{$ctrl.event.title}}</span>
             <span class="md-subhead">{{$ctrl.event.year}}</span>
-
+            <div flex-gt-xs>
+                <h4>Event Date</h4>
+                <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date" disabled></md-datepicker>
+            </div>
         </md-card-title-text>
 
     </md-card-title>
