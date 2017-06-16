@@ -1,7 +1,7 @@
 <md-toolbar>
     <div class="md-toolbar-tools">
 
-        <a ui-sref="movies" layout="row">
+        <a ui-sref="events" layout="row">
             <md-icon><ng-md-icon icon="grain" ></ng-md-icon></md-icon>
             <h2>Gurumitize</h2>
         </a>
@@ -15,7 +15,7 @@
             </md-button>
             <md-menu-content width="4">
                 <md-menu-item ng-if="$ctrl.isAuthenticated()">
-                    <md-button>
+                    <md-button ng-click="$ctrl.profile($event)">
                         <md-icon md-menu-align-target><ng-md-icon icon="account_circle" ></ng-md-icon></md-icon>
                         {{$ctrl.getCurrentUser()}}
                     </md-button>
