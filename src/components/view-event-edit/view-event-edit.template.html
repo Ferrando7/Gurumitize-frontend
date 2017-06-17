@@ -13,6 +13,11 @@
                 <md-icon><ng-md-icon icon="date_range" ></ng-md-icon></md-icon>
                 <input ng-model="$ctrl.model.year" type="text">
             </md-input-container>
+            <md-input-container class="md-icon-float md-block">
+                <label>Location</label>
+                <md-icon><ng-md-icon icon="location_on" ></ng-md-icon></md-icon>
+                <input ng-model="$ctrl.model.location" type="text">
+            </md-input-container>
             <div flex-gt-xs>
                 <h4>Select new date for the event</h4>
                 <md-datepicker ng-model="$ctrl.model.date" md-placeholder="Enter date"></md-datepicker>
