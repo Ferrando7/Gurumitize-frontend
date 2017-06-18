@@ -11,11 +11,9 @@
                     </div>
                     <div layout="row">
                         <div layout="column">
-                            <div flex-gt-xs>
+                            <div flex>
                                 <h4>Initial date</h4>
-                                <md-card-content>
-                                    <p>{{$ctrl.event.date}}</p>
-                                </md-card-content>
+                                <md-datepicker ng-model="$ctrl.event.date" md-placeholder="Enter date" disabled></md-datepicker>
                             </div>
                             <div flex>
                                 <h4>Initial time</h4>
@@ -25,11 +23,9 @@
                             </div>
                         </div>
                         <div layout="column">
-                            <div flex-gt-xs>
+                            <div flex>
                                 <h4>End date</h4>
-                                <md-card-content>
-                                    <p>{{$ctrl.event.date2}}</p>
-                                </md-card-content>
+                                <md-datepicker ng-model="$ctrl.event.date2" md-placeholder="Enter date" disabled></md-datepicker>
                             </div>
                             <div flex>
                                 <h4>End time</h4>
