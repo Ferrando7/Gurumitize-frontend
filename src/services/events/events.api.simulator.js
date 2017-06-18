@@ -8,7 +8,7 @@ let events = [
         "id": "771405216",
         "title": "Python Event",
         "year": "Research group",
-        "location": "street number one",
+        "location": "Leipziger Strasse 45",
         "date":'2017-10-15T23:00:00.000Z',
         "date2":'2017-10-15T23:00:00.000Z',
         "time":"21:20",
@@ -85,7 +85,7 @@ let events = [
         "id": "771321699",
         "title": "Java meeting",
         "year": "The java group",
-        "location": "street number 32",
+        "location": "Oldesloer Strasse 50",
         "date":'2017-12-15T23:00:00.000Z',
         "date2":'2017-10-15T23:00:00.000Z',
         "time":"21:20",
@@ -162,7 +162,7 @@ let events = [
         "id": "771379020",
         "title": "The Angular Reunion",
         "year": "Angular/react group",
-        "location": "street number two",
+        "location": "Rudolstaedter Strasse 33",
         "date":'2017-09-15T23:00:00.000Z',
         "date2":'2017-10-15T23:00:00.000Z',
         "time":"21:20",
@@ -239,7 +239,7 @@ let events = [
         "id": "771306093",
         "title": "Imperative vs functional programing",
         "year": "Which one is better group",
-        "location": "street number 3",
+        "location": "Brandenburgische Strasse 3",
         "date":'2017-12-15T23:00:00.000Z',
         "date2":'2017-10-15T23:00:00.000Z',
         "time":"21:20",
@@ -311,30 +311,6 @@ let events = [
             "reviews": "//api.rottentomatoes.com/api/public/v1.0/movies/771306093/reviews.json",
             "similar": "//api.rottentomatoes.com/api/public/v1.0/movies/771306093/similar.json"
         }
-    },
-    {
-        "_id": "56e05e59bce287981f6aad8b",
-        "year": 2016,
-        "location": "street number 4",
-        "date":'2017-12-15T23:00:00.000Z',
-        "date2":'2017-10-15T23:00:00.000Z',
-        "time":"21:20",
-        "time2":"23:45",
-        "description": "test",
-        "titel": "test",
-        "__v": 0
-    },
-    {
-        "_id": "56e060f914ac0bec26497bc6",
-        "year": 2016,
-        "location": "street number 5",
-        "date":'2017-12-15T23:00:00.000Z',
-        "date2":'2017-10-15T23:00:00.000Z',
-        "time":"21:20",
-        "time2":"23:45",
-        "description": "test",
-        "titel": "test",
-        "__v": 0
     }
 ];
 
