@@ -1,11 +1,50 @@
-<md-card>
-    <md-card-title>
-        <md-card-title-media>
-            <div layout="row" layout-align="center center" layout-padding>
-                <img ng-src="{{$ctrl.getPosterURL()}}" class="md-media-md">
+</md-card>
+    <md-card-content>
+        <div layout="column" layout-padding>
+            </md-content>
+            <div layout="row" layout-padding>
+                <div layout="column">
+                    <span class="md-headline">{{$ctrl.event.title}}</span>
+                    <span class="md-subhead">{{$ctrl.event.year}}</span>
+                    <div flex-gt-xs><md-icon><ng-md-icon icon="location_on" ></ng-md-icon></md-icon>
+                        <p>{{$ctrl.event.location}}</p>
+                    </div>
+                    <div layout="row">
+                        <div layout="column">
+                            <div flex-gt-xs>
+                                <h4>Initial date</h4>
+                                <md-card-content>
+                                    <p>{{$ctrl.event.date}}</p>
+                                </md-card-content>
+                            </div>
+                            <div flex>
+                                <h4>Initial time</h4>
+                                <md-card-content>
+                                    <p>{{$ctrl.event.date}}</p>
+                                </md-card-content>
+                            </div>
+                        </div>
+                        <div layout="column">
+                            <div flex-gt-xs>
+                                <h4>End date</h4>
+                                <md-card-content>
+                                    <p>{{$ctrl.event.date}}</p>
+                                </md-card-content>
+                            </div>
+                            <div flex>
+                                <h4>End time</h4>
+                                <md-card-content>
+                                    <p>{{$ctrl.event.date}}</p>
+                                </md-card-content>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <md-card-content>
+                    <p>{{$ctrl.event.synopsis}}</p>
+                </md-card-content>
             </div>
-        </md-card-title-media>
-        <md-card-title-text>
+            </md-content>
             <md-card-actions layout="row" layout-align="end center">
                 <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit()" >
                     <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
@@ -15,25 +54,6 @@
                     <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
                 </md-button>
             </md-card-actions>
-
-            <span class="md-headline">{{$ctrl.event.title}}</span>
-            <span class="md-subhead">{{$ctrl.event.year}}</span>
-            <div flex-gt-xs>
-                <h4>Event Date</h4>
-                <md-datepicker ng-model="ctrl.event.date" md-placeholder="Enter date" disabled></md-datepicker>
-            </div>
-        </md-card-title-text>
-
-    </md-card-title>
-
-    <md-card-content>
-        <div flex-gt-xs><md-icon><ng-md-icon icon="location_on" ></ng-md-icon></md-icon>
-            <p>{{$ctrl.event.location}}</p>
         </div>
-        <p>{{$ctrl.event.date}}</p>
-        <p>{{$ctrl.event.mpaa_rating}}</p>
-        <p>{{$ctrl.event.synopsis}}</p>
-    </md-card-content>
-
-
+    <md-card-content>
 </md-card>
