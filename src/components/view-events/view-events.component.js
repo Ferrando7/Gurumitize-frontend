@@ -45,18 +45,7 @@ class ViewEventsComponentController{
             this.$state.go('login',{});
         }
     };
-
-    newEvent(){
-
-        if (this.UserService.isAuthenticated()) {
-            this.$state.go('eventAdd',{});
-        } else {
-            this.$state.go('login',{});
-        }
-
-    }
-
-
+    
     delete(event) {
         if (this.UserService.isAuthenticated()) {
             let _id = event['_id'];
