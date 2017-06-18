@@ -8,7 +8,7 @@ import UserService from './../../services/user/user.service';
 
 class ViewWelcomeComponent {
     constructor(){
-        this.controller = ViewEventsComponentController;
+        this.controller = ViewWelcomeComponentController;
         this.template = template;
         this.bindings = {
             events: '<',
