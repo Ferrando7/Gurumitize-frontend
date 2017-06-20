@@ -41,18 +41,25 @@ class AppHeaderComponentController{
         return user.username;
     }
 
-
     goHome(){
-        this.$state.go('movies',{});
+        this.$state.go('events',{});
     }
 
     login(){
         this.$state.go('login',{});
     }
 
+    register(){
+        this.$state.go('register',{});
+    }
+
     logout(){
         this.UserService.logout();
-        this.$state.go('movies',{});
+        this.$state.go('events',{});
+    }
+
+    profile(){
+        this.$state.go('profile',{});
     }
 
     static get $inject(){

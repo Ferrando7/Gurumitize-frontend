@@ -1,0 +1,60 @@
+<div layout="column" layout-padding>
+    </md-content>
+    <div layout="row" layout-padding>
+        <div layout="column">
+            <md-input-container class="md-icon-float md-block">
+                <label>Name</label>
+                <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
+                <input ng-model="$ctrl.model.title" type="text">
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block">
+                <label>Group</label>
+                <md-icon><ng-md-icon icon="group" ></ng-md-icon></md-icon>
+                <input ng-model="$ctrl.model.year" type="text">
+            </md-input-container>
+            <md-input-container class="md-icon-float md-block">
+                <label>Location</label>
+                <md-icon><ng-md-icon icon="location_on" ></ng-md-icon></md-icon>
+                <input ng-model="$ctrl.model.location" type="text">
+            </md-input-container>
+            <div layout="row">
+                <div layout="column">
+                    <div flex-gt-xs>
+                        <h4>Initial date</h4>
+                        <md-datepicker ng-model="$ctrl.event.date" md-placeholder="Enter date"></md-datepicker>
+                    </div>
+                    <div flex>
+                        <md-input-container class="md-icon-float md-block">
+                            <label>From time</label>
+                            <md-icon><ng-md-icon icon="watch_later" ></ng-md-icon></md-icon>
+                            <input ng-model="$ctrl.event.time" type="text">
+                        </md-input-container>
+                    </div>
+                </div>
+                <div layout="column">
+                    <div flex-gt-xs>
+                        <h4>End date</h4>
+                        <md-datepicker ng-model="$ctrl.event.date2" md-placeholder="Enter date"></md-datepicker>
+                    </div>
+                    <div flex>
+                        <md-input-container class="md-icon-float md-block">
+                            <label>To time</label>
+                            <md-icon><ng-md-icon icon="watch_later" ></ng-md-icon></md-icon>
+                            <input ng-model="$ctrl.event.time2" type="text">
+                        </md-input-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <md-input-container class="md-block">
+            <label>Description</label>
+            <textarea ng-model="$ctrl.model.synopsis" md-maxlength="1000" rows="8" md-select-on-focus></textarea>
+        </md-input-container>
+    </div>
+    <div layout="row" layout-padding>
+        <span flex></span>
+        <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.save()">Save</md-button>
+        <md-button class="md-raised" ng-click="$ctrl.cancel()">Cancel</md-button>
+    </div>
+    </md-content>
+</div>

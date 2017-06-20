@@ -47,6 +47,7 @@ export default class UserService {
 
     isAuthenticated() {
         return !!this.$window.localStorage['jwtToken'];
+        //return true;
     }
 
 

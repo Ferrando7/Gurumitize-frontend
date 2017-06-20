@@ -1,11 +1,26 @@
 <md-toolbar>
     <div class="md-toolbar-tools">
 
-        <a ui-sref="movies" layout="row">
+        <a ui-sref="events" layout="row" layout-margin>
             <md-icon><ng-md-icon icon="grain" ></ng-md-icon></md-icon>
-            <h2>Movie Application</h2>
+            <h2>Gurumitize</h2>
         </a>
-
+        <a ui-sref="events" layout="row" layout-margin>
+            <md-icon><ng-md-icon icon="event" ></ng-md-icon></md-icon>
+            <h2>View Events</h2>
+        </a>
+        <a ui-sref="eventAdd" layout="row" layout-margin>
+            <md-icon><ng-md-icon icon="event_available" ></ng-md-icon></md-icon>
+            <h2>New Event</h2>
+        </a>
+        <a ui-sref="eventAdd" layout="row" layout-margin>
+            <md-icon><ng-md-icon icon="group" ></ng-md-icon></md-icon>
+            <h2>Search group</h2>
+        </a>
+        <a ui-sref="eventAdd" layout="row" layout-margin>
+            <md-icon><ng-md-icon icon="group_add" ></ng-md-icon></md-icon>
+            <h2>Create group</h2>
+        </a>
         <span flex></span>
 
         <span flex="5"></span>
@@ -15,7 +30,7 @@
             </md-button>
             <md-menu-content width="4">
                 <md-menu-item ng-if="$ctrl.isAuthenticated()">
-                    <md-button>
+                    <md-button ng-click="$ctrl.profile($event)">
                         <md-icon md-menu-align-target><ng-md-icon icon="account_circle" ></ng-md-icon></md-icon>
                         {{$ctrl.getCurrentUser()}}
                     </md-button>
@@ -31,6 +46,10 @@
                     <md-button ng-click="$ctrl.login($event)">
                         <md-icon md-menu-align-target><ng-md-icon icon="login" ></ng-md-icon></md-icon>
                         Login
+                    </md-button>
+                    <md-button ng-click="$ctrl.register($event)">
+                        <md-icon md-menu-align-target><ng-md-icon icon="register" ></ng-md-icon></md-icon>
+                        Register
                     </md-button>
                 </md-menu-item>
             </md-menu-content>

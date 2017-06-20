@@ -1,23 +1,23 @@
 
 'use strict';
 
-import template from './view-movie-create.template.html';
+import template from './view-profile.template.html';
 
 import MoviesService from './../../services/movies/movies.service';
 import UserService from './../../services/user/user.service';
 
-class ViewMovieCreateComponent {
+class ViewProfileComponent {
     constructor(){
-        this.controller = ViewMovieCreateComponentController;
+        this.controller = ViewProfileComponentController;
         this.template = template;
     }
 
     static get name() {
-        return 'viewMovieCreate';
+        return 'viewProfile';
     }
 }
 
-class ViewMovieCreateComponentController{
+class ViewProfileComponentController{
     constructor($state, MoviesService,UserService){
         this.movie = {};
         this.$state = $state;
@@ -48,4 +48,4 @@ class ViewMovieCreateComponentController{
 }
 
 
-export default ViewMovieCreateComponent;
+export default ViewProfileComponent;
