@@ -22,6 +22,7 @@ import ViewEventCreate from './components/view-event-create/view-event-create';
 import ViewLogin from './components/view-login/view-login';
 import ViewRegister from './components/view-register/view-register';
 import ViewProfile from './components/view-profile/view-profile';
+//import ViewWelcome from './components/view-welcome/view-welcome';
 
 let app = angular.module('app', [
     uiRouter,
@@ -36,7 +37,8 @@ let app = angular.module('app', [
     ViewEventCreate.name,
     ViewRegister.name,
     ViewLogin.name,
-    ViewProfile.name
+    ViewProfile.name,
+    //ViewWelcome.name
 ]);
 
 app.constant('API_URL', 'http://5aee6f28.ngrok.io/api');

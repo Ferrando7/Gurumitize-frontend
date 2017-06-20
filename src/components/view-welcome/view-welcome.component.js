@@ -1,14 +1,14 @@
 
 'use strict';
 
-import template from './view-events.template.html';
+import template from './view-welcome.template.html';
 import EventsService from './../../services/events/events.service';
 import UserService from './../../services/user/user.service';
 
 
-class ViewEventsComponent {
+class ViewWelcomeComponent {
     constructor(){
-        this.controller = ViewEventsComponentController;
+        this.controller = ViewWelcomeComponentController;
         this.template = template;
         this.bindings = {
             events: '<',
@@ -22,7 +22,7 @@ class ViewEventsComponent {
 
 }
 
-class ViewEventsComponentController{
+class ViewWelcomeComponentController{
     constructor($state,$scope,EventsService,UserService){
         this.$state = $state;
         this.$scope = $scope;
@@ -45,7 +45,18 @@ class ViewEventsComponentController{
             this.$state.go('login',{});
         }
     };
-    
+
+    newEvent(){
+
+        if (this.UserService.isAuthenticated()) {
+            this.$state.go('eventAdd',{});
+        } else {
+            this.$state.go('login',{});
+        }
+
+    }
+
+
     delete(event) {
         if (this.UserService.isAuthenticated()) {
             let _id = event['_id'];
@@ -68,4 +79,4 @@ class ViewEventsComponentController{
 
 }
 
-export default ViewEventsComponent;
+export default ViewWelcomeComponent;

@@ -7,6 +7,7 @@ import EventCreateComponent from './../components/view-event-create/view-event-c
 import LoginComponent from './../components/view-login/view-login.component';
 import RegisterComponent from './../components/view-register/view-register.component';
 import ProfileComponent from './../components/view-profile/view-profile.component';
+import WelcomeComponent from './../components/view-welcome/view-welcome.component';
 
 import EventsService from './../services/events/events.service';
 
@@ -66,7 +67,11 @@ export default function config ($stateProvider, $urlRouterProvider){
         .state('profile', {
             url: '/profile',
             component: ProfileComponent.name,
-        })
+        })/*
+        .state('welcome', {
+            url: '/welcome',
+            component: WelcomeComponent.name,
+        })*/
 
 
 
