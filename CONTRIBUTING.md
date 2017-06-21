@@ -17,6 +17,7 @@
 #### **Do you intend to add a new feature or change an existing one?**
 
 * Create an issue with the "feature" tag".
+* Go to the "development" branch and create a new branch with a meaningful name fro the new feature.
 
 Thanks! :heart: :heart: :heart:
 
