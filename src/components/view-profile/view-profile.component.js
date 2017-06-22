@@ -4,6 +4,7 @@
 import template from './view-profile.template.html';
 
 import UserService from './../../services/user/user.service';
+//import GroupsService from './../../services/groups/groups.service';
 
 class ViewProfileComponent {
     constructor(){
@@ -18,9 +19,9 @@ class ViewProfileComponent {
 
 class ViewProfileComponentController{
     constructor($state,UserService){
-        //this.movie = {};
+        //this.group = {};
         this.$state = $state;
-        //this.MoviesService = MoviesService;
+        //this.GroupsService = GroupsService;
         this.UserService = UserService;
     }
     /*
@@ -38,7 +39,11 @@ class ViewProfileComponentController{
         });
 
     };*/
-
+    /*To-do
+     Show the groups the user belongs to
+     Show the skill
+     Add a profile picture
+      */
     getCurrentUser(){
         let user = this.UserService.getCurrentUser();
         return user.username;
