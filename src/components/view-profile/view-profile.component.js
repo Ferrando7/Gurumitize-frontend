@@ -3,7 +3,6 @@
 
 import template from './view-profile.template.html';
 
-import MoviesService from './../../services/movies/movies.service';
 import UserService from './../../services/user/user.service';
 
 class ViewProfileComponent {
@@ -18,15 +17,15 @@ class ViewProfileComponent {
 }
 
 class ViewProfileComponentController{
-    constructor($state, MoviesService,UserService){
-        this.movie = {};
+    constructor($state,UserService){
+        //this.movie = {};
         this.$state = $state;
-        this.MoviesService = MoviesService;
+        //this.MoviesService = MoviesService;
         this.UserService = UserService;
     }
-
+    /*
     cancel() {
-        this.$state.go('movies',{});
+        this.$state.go('events',{});
     };
 
     save() {
@@ -38,11 +37,16 @@ class ViewProfileComponentController{
             this.$state.go('movie',{ movieId:_id});
         });
 
-    };
+    };*/
+
+    getCurrentUser(){
+        let user = this.UserService.getCurrentUser();
+        return user.username;
+    }
 
 
     static get $inject(){
-        return ['$state', MoviesService.name, UserService.name];
+        return ['$state', UserService.name];
     }
 
 }
