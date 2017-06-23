@@ -3,8 +3,8 @@
 
 import template from './view-profile.template.html';
 
-import MoviesService from './../../services/movies/movies.service';
 import UserService from './../../services/user/user.service';
+//import GroupsService from './../../services/groups/groups.service';
 
 class ViewProfileComponent {
     constructor(){
@@ -18,15 +18,15 @@ class ViewProfileComponent {
 }
 
 class ViewProfileComponentController{
-    constructor($state, MoviesService,UserService){
-        this.movie = {};
+    constructor($state,UserService){
+        //this.group = {};
         this.$state = $state;
-        this.MoviesService = MoviesService;
+        //this.GroupsService = GroupsService;
         this.UserService = UserService;
     }
-
+    /*
     cancel() {
-        this.$state.go('movies',{});
+        this.$state.go('events',{});
     };
 
     save() {
@@ -38,11 +38,20 @@ class ViewProfileComponentController{
             this.$state.go('movie',{ movieId:_id});
         });
 
-    };
+    };*/
+    /*To-do
+     Show the groups the user belongs to
+     Show the skill
+     Add a profile picture
+      */
+    getCurrentUser(){
+        let user = this.UserService.getCurrentUser();
+        return user.username;
+    }
 
 
     static get $inject(){
-        return ['$state', MoviesService.name, UserService.name];
+        return ['$state', UserService.name];
     }
 
 }
