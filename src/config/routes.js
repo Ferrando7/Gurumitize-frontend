@@ -88,7 +88,7 @@ export default function config ($stateProvider, $urlRouterProvider){
             url: '/groups',
             component: GroupsComponent.name,
             resolve: {
-                events : resolveGroups
+                groups : resolveGroups
             }
         })
         .state('groupAdd', {

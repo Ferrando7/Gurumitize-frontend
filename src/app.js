@@ -9,6 +9,7 @@ import 'angular-material/angular-material.css';
 import ngMdIcons from 'angular-material-icons';
 
 import EventsService from './services/events/events';
+import GroupsService from './services/groups/groups';
 import UserService from './services/user/user';
 
 import Routes from './config/routes';
@@ -34,6 +35,7 @@ let app = angular.module('app', [
     ngMdIcons,
     UserService.name,
     EventsService.name,
+    GroupsService.name,
     AppContent.name,
     ViewEvents.name,
     ViewEvent.name,

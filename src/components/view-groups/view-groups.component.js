@@ -11,7 +11,7 @@ class ViewGroupsComponent {
         this.controller = ViewGroupsComponentController;
         this.template = template;
         this.bindings = {
-            events: '<',
+            groups: '<',
         }
     }
 
@@ -31,28 +31,28 @@ class ViewGroupsComponentController{
 
     }
 
-    details (event) {
-        let _id = event['_id'];
-        this.$state.go('event',{ eventId:_id});
+    details (group) {
+        let _id = group['_id'];
+        this.$state.go('group',{ groupId:_id});
     };
 
-    edit (event) {
+    edit (group) {
 
         if (this.UserService.isAuthenticated()) {
-            let _id = event['_id'];
-            this.$state.go('eventEdit',{ eventId:_id});
+            let _id = group['_id'];
+            this.$state.go('groupEdit',{ groupId:_id});
         } else {
             this.$state.go('login',{});
         }
     };
 
-    delete(event) {
+    delete(group) {
         if (this.UserService.isAuthenticated()) {
-            let _id = event['_id'];
+            let _id = group['_id'];
 
             this.GroupsService.delete(_id).then(response => {
-                let index = this.events.map(x => x['_id']).indexOf(_id);
-                this.events.splice(index, 1);
+                let index = this.groups.map(x => x['_id']).indexOf(_id);
+                this.groups.splice(index, 1);
                 this.$scope.$apply();
             })
 

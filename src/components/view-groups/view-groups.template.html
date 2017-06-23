@@ -1,15 +1,15 @@
 <md-list>
 
-    <md-list-item aria-label="Event" ng-click="$ctrl.details(event)" class="noright" ng-repeat="event in $ctrl.events">
-        <md-icon><ng-md-icon icon="event_note"></ng-md-icon></md-icon>
+    <md-list-item aria-label="Event" ng-click="$ctrl.details(group)" class="noright" ng-repeat="group in $ctrl.groups">
+        <md-icon><ng-md-icon icon="group"></ng-md-icon></md-icon>
 
-        <p> {{event.title}} </p>
+        <p> {{group.title}} </p>
 
-        <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit(event)" >
+        <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit(group)" >
             <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
         </md-button>
 
-        <md-button class="md-icon-button"aria-label="Delete Item" ng-click="$ctrl.delete(event)" >
+        <md-button class="md-icon-button"aria-label="Delete Item" ng-click="$ctrl.delete(group)" >
             <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
         </md-button>
         <md-divider ng-if="!$last"></md-divider>

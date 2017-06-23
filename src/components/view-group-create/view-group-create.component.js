@@ -18,23 +18,23 @@ class ViewGroupCreateComponent {
 
 class ViewGroupCreateComponentController{
     constructor($state, GroupsService,UserService){
-        this.event = {};
+        this.group = {};
         this.$state = $state;
         this.GroupsService = GroupsService;
         this.UserService = UserService;
     }
 
     cancel() {
-        this.$state.go('events',{});
+        this.$state.go('groups',{});
     };
 
     save() {
         let user = this.UserService.getCurrentUser();
 
-        this.event['user'] = user['_id'];
-        this.GroupsService.create(this.event).then(data => {
+        this.group['user'] = user['_id'];
+        this.GroupsService.create(this.group).then(data => {
             let _id = data['_id'];
-            this.$state.go('events',{ eventId:_id});
+            this.$state.go('groups',{ groupId:_id});
         });
 
     };

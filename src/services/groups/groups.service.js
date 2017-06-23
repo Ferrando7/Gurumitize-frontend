@@ -9,12 +9,12 @@ export default class GroupsService {
 
     constructor($http,API_URL) {
         this.$http = $http;
-        this.resourceUrl = `${ API_URL }/events/`;
+        this.resourceUrl = `${ API_URL }/groups/`;
 
     }
 
     static get name(){
-        return 'eventsService';
+        return 'groupsService';
     }
 
     list() {
@@ -43,9 +43,9 @@ export default class GroupsService {
     }
 
 
-    create(event) {
+    create(group) {
         let url = this.resourceUrl;
-        return this.$http.post(url,event).then(responce => {
+        return this.$http.post(url,group).then(responce => {
 
             return new Promise((resolve, reject) => {
                 resolve(responce.data);
@@ -65,10 +65,10 @@ export default class GroupsService {
         })
     }
 
-    update(event) {
+    update(group) {
 
-        let url = `${ this.resourceUrl }${ event['_id'] }`;
-        return this.$http.put(url,event).then(responce => {
+        let url = `${ this.resourceUrl }${ group['_id'] }`;
+        return this.$http.put(url,group).then(responce => {
 
             return new Promise((resolve, reject) => {
                 resolve(responce.data);
