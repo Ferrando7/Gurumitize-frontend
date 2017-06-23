@@ -19,6 +19,10 @@ import ViewEvents from './components/view-events/view-events';
 import ViewEvent from './components/view-event/view-event';
 import ViewEventEdit from './components/view-event-edit/view-event-edit';
 import ViewEventCreate from './components/view-event-create/view-event-create';
+import ViewGroups from './components/view-groups/view-groups';
+import ViewGroup from './components/view-group/view-group';
+import ViewGroupEdit from './components/view-group-edit/view-group-edit';
+import ViewGroupCreate from './components/view-group-create/view-group-create';
 import ViewLogin from './components/view-login/view-login';
 import ViewRegister from './components/view-register/view-register';
 import ViewProfile from './components/view-profile/view-profile';
@@ -35,6 +39,10 @@ let app = angular.module('app', [
     ViewEvent.name,
     ViewEventEdit.name,
     ViewEventCreate.name,
+    ViewGroups.name,
+    ViewGroup.name,
+    ViewGroupEdit.name,
+    ViewGroupCreate.name,
     ViewRegister.name,
     ViewLogin.name,
     ViewProfile.name,
