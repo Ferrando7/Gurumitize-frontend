@@ -1,0 +1,26 @@
+</md-card>
+<md-card-content>
+    <div layout="column" layout-padding>
+        </md-content>
+        <div layout="row" layout-padding>
+            <span class="md-headline">{{$ctrl.group.title}}</span>
+            <md-card-content>
+                <p>{{$ctrl.group.description}}</p>
+            </md-card-content>
+            <md-card-content>
+                <p>{{$ctrl.group.tags}}</p>
+            </md-card-content>
+        </div>
+        </md-content>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit()" >
+                <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
+            </md-button>
+
+            <md-button class="md-icon-button"aria-label="Delete Item" ng-click="$ctrl.delete()" >
+                <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
+            </md-button>
+        </md-card-actions>
+    </div>
+</md-card-content>
+</md-card>

@@ -1,14 +1,24 @@
-<div layout="column" layout-padding>
+<div layout="row" layout-padding>
     <md-content class="md-no-momentum">
-        <br/>
-        <form name="profileForm">
-            <md-input-container class="md-icon-float md-block">
-                <label>Title</label>
-                <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.movie.title" type="text">
-            </md-input-container>
+        <div>
+            <h4>Profile picture</h4>
+        </div>
 
-        </form>
+        <div layout="column" layout-padding>
+            <div layout="row" layout-padding>
+                <div>
+                    <form name="profileForm">
+                        <span class="md-headline">Username: </span>
+                        <span class="md-subhead">{{$ctrl.getCurrentUser()}}</span>
+                    </form>
+                </div>
+                <div>
+                    <span class="md-headline">Skill Level: </span>
+                </div>
+            </div>
+            <div>
+                <span class="md-headline">Would like to learn: </span>
+            </div>
+        </div>
     </md-content>
-
 </div>
