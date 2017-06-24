@@ -19,6 +19,18 @@
                             <div ng-message="required">Please enter your password.</div>
                         </div>
                     </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Name</label>
+                        <input type="text" name="password" ng-model="$ctrl.register.vorname" placeholder="name"/>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Surname</label>
+                        <input type="text" name="password" ng-model="$ctrl.register.surname" placeholder="surname"/>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Email</label>
+                        <input type="text" name="password" ng-model="$ctrl.register.email" placeholder="email"/>
+                    </md-input-container>
                     <md-button ng-disabled="!RegisterForm.$valid" ng-click="$ctrl.submit()" class="md-raised md-primary">&nbsp Register &nbsp</md-button>
                 </form>
             </md-card-content>
