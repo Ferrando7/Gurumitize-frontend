@@ -49,6 +49,21 @@ class ViewProfileComponentController{
         return user.username;
     }
 
+    getCurrentUserName(){
+        let user = this.UserService.getCurrentUser();
+        return user.vorname;
+    }
+
+    getCurrentUserSurname(){
+        let user = this.UserService.getCurrentUser();
+        return user.surname;
+    }
+
+    getCurrentUserEmail(){
+        let user = this.UserService.getCurrentUser();
+        return user.email;
+    }
+
 
     static get $inject(){
         return ['$state', UserService.name];
