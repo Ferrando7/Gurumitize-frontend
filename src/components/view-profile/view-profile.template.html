@@ -4,8 +4,8 @@
             <h4>Profile picture</h4>
         </div>
 
-        <div layout="column" layout-padding>
-            <div layout="row" layout-padding>
+        <div layout="row" layout-padding>
+            <div layout="column" layout-padding>
                 <div>
                     <form name="profileForm">
                         <span class="md-headline">Username: </span>
@@ -21,16 +21,16 @@
                     <span class="md-subhead">{{$ctrl.getCurrentUserSurname()}}</span>
                 </div>
                 <div>
-                    <span class="md-headline">email: </span>
+                    <span class="md-headline">Email: </span>
                     <span class="md-subhead">{{$ctrl.getCurrentUserEmail()}}</span>
-                </div>
-                <div>
-                    <span class="md-headline">Skill Level: </span>
                 </div>
             </div>
             <div>
-                <span class="md-headline">Would like to learn: </span>
+                <span class="md-headline">Skill Level: </span>
             </div>
+        </div>
+        <div>
+            <span class="md-headline">Would like to learn: </span>
         </div>
     </md-content>
 </div>

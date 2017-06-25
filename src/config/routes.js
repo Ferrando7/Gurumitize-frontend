@@ -43,7 +43,7 @@ config.$inject = ['$stateProvider', '$urlRouterProvider'];
 export default function config ($stateProvider, $urlRouterProvider){
 
     // For any unmatched url, redirect to /home
-    $urlRouterProvider.otherwise("/events");
+    $urlRouterProvider.otherwise("/welcome");
 
     $stateProvider
         .state('events', {
@@ -109,11 +109,11 @@ export default function config ($stateProvider, $urlRouterProvider){
             resolve: {
                 group : resolveGroup
             }
-        })/*
+        })
         .state('welcome', {
             url: '/welcome',
             component: WelcomeComponent.name,
-        })*/
+        })
 
 
 
