@@ -109,11 +109,11 @@ export default function config ($stateProvider, $urlRouterProvider){
             resolve: {
                 group : resolveGroup
             }
-        })/*
+        })
         .state('welcome', {
             url: '/welcome',
             component: WelcomeComponent.name,
-        })*/
+        })
 
 
 

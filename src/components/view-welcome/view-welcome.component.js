@@ -10,13 +10,13 @@ class ViewWelcomeComponent {
     constructor(){
         this.controller = ViewWelcomeComponentController;
         this.template = template;
-        this.bindings = {
+        /*this.bindings = {
             events: '<',
-        }
+        }*/
     }
 
     static get name() {
-        return 'viewEvents';
+        return 'viewWelcome';
     }
 
 
@@ -26,8 +26,8 @@ class ViewWelcomeComponentController{
     constructor($state,$scope,EventsService,UserService){
         this.$state = $state;
         this.$scope = $scope;
-        this.EventsService = EventsService;
-        this.UserService = UserService;
+        //this.EventsService = EventsService;
+        //this.UserService = UserService;
 
     }
 
