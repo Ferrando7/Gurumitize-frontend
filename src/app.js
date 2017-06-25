@@ -27,7 +27,7 @@ import ViewGroupCreate from './components/view-group-create/view-group-create';
 import ViewLogin from './components/view-login/view-login';
 import ViewRegister from './components/view-register/view-register';
 import ViewProfile from './components/view-profile/view-profile';
-//import ViewWelcome from './components/view-welcome/view-welcome';
+import ViewWelcome from './components/view-welcome/view-welcome';
 
 let app = angular.module('app', [
     uiRouter,
@@ -48,7 +48,7 @@ let app = angular.module('app', [
     ViewRegister.name,
     ViewLogin.name,
     ViewProfile.name,
-    //ViewWelcome.name
+    ViewWelcome.name
 ]);
 
 app.constant('API_URL', 'http://localhost:3000/api');
