@@ -5,6 +5,18 @@
 
         <p> {{group.title}} </p>
 
+        <div ng-if="!$ctrl.isJoined(group)">
+            <md-button class="md-icon-button" aria-label="Join Group" ng-click="$ctrl.join(group)" >
+                <md-icon><ng-md-icon icon="person_add"></ng-md-icon></md-icon>
+            </md-button>
+        </div>
+
+        <div ng-if="$ctrl.isJoined(group)">
+            <md-button class="md-icon-button" aria-label="Leave Group" ng-click="$ctrl.leave(group)" >
+                <md-icon><ng-md-icon icon="person_outline"></ng-md-icon></md-icon>
+            </md-button>
+        </div>
+
         <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit(group)" >
             <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
         </md-button>

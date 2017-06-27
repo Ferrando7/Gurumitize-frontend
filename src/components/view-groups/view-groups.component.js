@@ -36,6 +36,40 @@ class ViewGroupsComponentController{
         this.$state.go('group',{ groupId:_id});
     };
 
+    join (group) {
+        if (this.UserService.isAuthenticated()) {
+            let user = this.UserService.getCurrentUser();
+
+            group['users'].push(user['_id']);
+
+            this.GroupsService.update(group).then(data => {
+                let _id = group['_id']
+                this.$state.go('groups',{ groupId:_id});
+            });
+
+        } else {
+            this.$state.go('login',{});
+        }
+    };
+
+    leave (group) {
+        if (this.UserService.isAuthenticated()) {
+            let user = this.UserService.getCurrentUser();
+
+            group['users'] = group['users'].filter(function (el) {
+                return el !== user['id'];
+            });
+
+            this.GroupsService.update(group).then(data => {
+                let _id = group['_id'];
+                this.$state.go('groups',{});
+            })
+
+        } else {
+            this.$state.go('login',{});
+        }
+    }
+
     edit (group) {
 
         if (this.UserService.isAuthenticated()) {
@@ -61,6 +95,26 @@ class ViewGroupsComponentController{
         }
     };
 
+    save(group) {
+        let _id = group['_id']
+
+        this.GroupsService.update(group).then(data => {
+            this.$state.go('groups',{ groupId:_id});
+        });
+    };
+
+    isJoined(group) {
+        var user = this.UserService.getCurrentUser();
+        var users = group['users'];
+        var found = false;
+        for(var i = 0; i < users.length; i++) {
+            if (users[i] == user['_id']) {
+                found = true;
+                break;
+            }
+        }
+        return found;
+    }
 
     static get $inject(){
         return ['$state', '$scope' ,GroupsService.name, UserService.name];

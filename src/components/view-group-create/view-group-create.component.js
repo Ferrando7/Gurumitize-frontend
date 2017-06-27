@@ -31,7 +31,7 @@ class ViewGroupCreateComponentController{
     save() {
         let user = this.UserService.getCurrentUser();
 
-        this.group['user'] = user['_id'];
+        this.group['users'] = [user['_id']];
         this.GroupsService.create(this.group).then(data => {
             let _id = data['_id'];
             this.$state.go('groups',{ groupId:_id});
