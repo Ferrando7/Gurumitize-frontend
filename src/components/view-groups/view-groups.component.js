@@ -55,13 +55,17 @@ class ViewGroupsComponentController{
     leave (group) {
         if (this.UserService.isAuthenticated()) {
             let user = this.UserService.getCurrentUser();
+            let users = group['users'];
 
-            group['users'] = group['users'].filter(function (el) {
-                return el !== user['id'];
-            });
+            for(let i = 0; i < users.length; i++) {
+                if (users[i] == user['_id']) {
+                    users.splice(i,1);
+                    group['users'] = users;
+                    break;
+                }
+            }
 
             this.GroupsService.update(group).then(data => {
-                let _id = group['_id'];
                 this.$state.go('groups',{});
             })
 
@@ -104,10 +108,10 @@ class ViewGroupsComponentController{
     };
 
     isJoined(group) {
-        var user = this.UserService.getCurrentUser();
-        var users = group['users'];
-        var found = false;
-        for(var i = 0; i < users.length; i++) {
+        let user = this.UserService.getCurrentUser();
+        let users = group['users'];
+        let found = false;
+        for(let i = 0; i < users.length; i++) {
             if (users[i] == user['_id']) {
                 found = true;
                 break;
