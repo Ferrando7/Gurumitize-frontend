@@ -44,7 +44,7 @@ class ViewGroupsComponentController{
 
             this.GroupsService.update(group).then(data => {
                 let _id = group['_id']
-                this.$state.go('groups',{ groupId:_id});
+                this.$state.go('group',{ groupId:_id});
             });
 
         } else {
@@ -97,14 +97,6 @@ class ViewGroupsComponentController{
         } else {
             this.$state.go('login',{});
         }
-    };
-
-    save(group) {
-        let _id = group['_id']
-
-        this.GroupsService.update(group).then(data => {
-            this.$state.go('groups',{ groupId:_id});
-        });
     };
 
     isJoined(group) {
