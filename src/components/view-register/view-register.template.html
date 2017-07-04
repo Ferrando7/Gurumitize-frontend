@@ -7,29 +7,33 @@
                 <form name="RegisterForm">
                     <md-input-container class="md-block">
                         <label>Username</label>
-                        <input type="text" name="username" ng-model="$ctrl.register.username" placeholder="login" required=""/>
-                        <div ng-messages="RegisterForm.username.$error" role="alert" multiple="">
+                        <input type="text" name="username" ng-model="$ctrl.register.username" placeholder="login" required/>
+                        <div ng-messages="RegisterForm.username.$error">
                             <div ng-message="required">Please enter the username you want to use.</div>
                         </div>
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>Password</label>
-                        <input type="password" name="password" ng-model="$ctrl.register.password" placeholder="password" required="" md-maxlength="64"/>
-                        <div ng-messages="RegisterForm.password.$error" role="alert" multiple="">
+                        <input type="password" name="password" ng-model="$ctrl.register.password" placeholder="password" required md-maxlength="64"/>
+                        <div ng-messages="RegisterForm.password.$error">
                             <div ng-message="required">Please enter your password.</div>
                         </div>
                     </md-input-container>
                     <md-input-container class="md-block">
-                        <label>Name</label>
-                        <input type="text" name="password" ng-model="$ctrl.register.vorname" placeholder="name"/>
+                        <label>First name</label>
+                        <input type="text" name="firstName" ng-model="$ctrl.register.vorname" placeholder="first name"/>
                     </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>Surname</label>
-                        <input type="text" name="password" ng-model="$ctrl.register.surname" placeholder="surname"/>
+                    <md-input-container>
+                        <label>Last name</label>
+                        <input type="text" name="lastName" ng-model="$ctrl.register.surname" placeholder="last name">
                     </md-input-container>
-                    <md-input-container class="md-block">
+                    <md-input-container>
                         <label>Email</label>
-                        <input type="text" name="password" ng-model="$ctrl.register.email" placeholder="email"/>
+                        <input type="email" name="email" ng-model="$ctrl.register.email" placeholder="email" required/>
+                        <div ng-messages="RegisterForm.email.$error">
+                            <div ng-message="required">Please enter a valid email address.</div>
+                            <div ng-message="email">The email has to be on the format abc@def.ghi</div>
+                        </div>
                     </md-input-container>
                     <md-button ng-disabled="!RegisterForm.$valid" ng-click="$ctrl.submit()" class="md-raised md-primary">&nbsp Register &nbsp</md-button>
                 </form>
