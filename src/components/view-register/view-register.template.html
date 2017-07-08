@@ -7,21 +7,25 @@
                 <form name="RegisterForm">
                     <md-input-container class="md-block">
                         <label>Username</label>
-                        <input type="text" name="username" ng-model="$ctrl.register.username" placeholder="login" required/>
+                        <input type="text" name="username" ng-model="$ctrl.register.username" placeholder="login" required minlength="6" ng-pattern="^[a-zA-Z0-9]+$"/>
                         <div ng-messages="RegisterForm.username.$error">
                             <div ng-message="required">Please enter the username you want to use.</div>
+                            <div ng-message="minlength">Username must be at least 6 characters long.</div>
+                            <div ng-message="ng-pattern">Please only use uppercase, lowercase or numerical characters.</div>
                         </div>
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>Password</label>
-                        <input type="password" name="password" ng-model="$ctrl.register.password" placeholder="password" required md-maxlength="64"/>
+                        <input type="password" name="password" ng-model="$ctrl.register.password" placeholder="password" required minlength="6" md-maxlength="64" ng-pattern="^[a-zA-Z0-9]+$"/>
                         <div ng-messages="RegisterForm.password.$error">
                             <div ng-message="required">Please enter your password.</div>
+                            <div ng-message="minlength">Password must be at least 6 characters long.</div>
+                            <div ng-message="ng-pattern">Please only use uppercase, lowercase or numerical characters.</div>
                         </div>
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>First name</label>
-                        <input type="text" name="firstName" ng-model="$ctrl.register.vorname" placeholder="first name"/>
+                        <input type="text" name="firstName" ng-model="$ctrl.register.vorname" placeholder="first name">
                     </md-input-container>
                     <md-input-container>
                         <label>Last name</label>
@@ -35,7 +39,8 @@
                             <div ng-message="email">The email has to be on the format abc@def.ghi</div>
                         </div>
                     </md-input-container>
-                    <md-button ng-disabled="!RegisterForm.$valid" ng-click="$ctrl.submit()" class="md-raised md-primary">&nbsp Register &nbsp</md-button>
+                    <div ng-show="RegisterForm.$submitted" style="font-size:small;color:red">Username is not unique, please change it.</div>
+                    <md-button ng-disabled="!RegisterForm.$valid" ng-click="$ctrl.submit(RegisterForm)" class="md-raised md-primary">&nbsp Register &nbsp</md-button>
                 </form>
             </md-card-content>
         </md-card>
