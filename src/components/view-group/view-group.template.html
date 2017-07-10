@@ -7,9 +7,9 @@
             <md-card-content>
                 <p>{{$ctrl.group.description}}</p>
             </md-card-content>
-            <md-card-content>
-                <p>{{$ctrl.group.tags}}</p>
-            </md-card-content>
+            <md-chips ng-model="$ctrl.group.tags" readonly="true" md-removable="false">
+                <div>{{$chip}}</div>
+            </md-chips>
         </div>
         </md-content>
         <md-card-actions layout="row" layout-align="end center">
