@@ -23,6 +23,10 @@ class ViewGroupEditComponentController{
         this.model = {};
         this.$state = $state;
         this.GroupsService = GroupsService;
+
+        var comma = 188;
+        var enter = 13;
+        this.keys = [comma, enter];
     }
 
     $onInit() {
@@ -38,7 +42,7 @@ class ViewGroupEditComponentController{
     save() {
         let _id = this.group['_id'];
 
-        this.GroupsService.update(this.model).then(data => {
+        this.GroupsService.update(this.group).then(data => {
             this.group = JSON.parse(JSON.stringify(data));
 
             this.$state.go('group',{ groupId:_id});
