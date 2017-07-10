@@ -1,23 +1,23 @@
 
 'use strict';
 
-import template from './view-profile.template.html';
+import template from './view-profile-edit.template.html';
 
 import UserService from './../../services/user/user.service';
 //import GroupsService from './../../services/groups/groups.service';
 
-class ViewProfileComponent {
+class ViewProfileEditComponent {
     constructor(){
-        this.controller = ViewProfileComponentController;
+        this.controller = ViewProfileEditComponentController;
         this.template = template;
     }
 
     static get name() {
-        return 'viewProfile';
+        return 'viewProfileEdit';
     }
 }
 
-class ViewProfileComponentController{
+class ViewProfileEditComponentController{
     constructor($state,UserService){
         //this.group = {};
         this.$state = $state;
@@ -65,7 +65,7 @@ class ViewProfileComponentController{
     }
 
     getCurrentUserBio(){
-        return "A really cool bio. I'm really cool."
+        return "A really cool bio.\n\nI'm really cool."
     }
 
     getCurrentUserGoals(){
@@ -80,4 +80,4 @@ class ViewProfileComponentController{
 }
 
 
-export default ViewProfileComponent;
+export default ViewProfileEditComponent;

@@ -11,6 +11,7 @@ import GroupCreateComponent from './../components/view-group-create/view-group-c
 import LoginComponent from './../components/view-login/view-login.component';
 import RegisterComponent from './../components/view-register/view-register.component';
 import ProfileComponent from './../components/view-profile/view-profile.component';
+import ProfileEditComponent from './../components/view-profile-edit/view-profile-edit.component';
 import WelcomeComponent from './../components/view-welcome/view-welcome.component';
 
 import EventsService from './../services/events/events.service';
@@ -83,6 +84,10 @@ export default function config ($stateProvider, $urlRouterProvider){
         .state('profile', {
             url: '/profile',
             component: ProfileComponent.name,
+        })
+        .state('profileEdit', {
+            url: '/profileEdit',
+            component: ProfileEditComponent.name,
         })
         .state('groups', {
             url: '/groups',
