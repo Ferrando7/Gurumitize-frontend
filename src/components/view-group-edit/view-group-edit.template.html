@@ -9,11 +9,9 @@
         <label>Description</label>
         <textarea ng-model="$ctrl.model.description" md-maxlength="1000" rows="8" md-select-on-focus></textarea>
     </md-input-container>
-    <md-input-container class="md-icon-float md-block">
-        <label>Tags</label>
-        <md-icon><ng-md-icon icon="location_on" ></ng-md-icon></md-icon>
-        <input ng-model="$ctrl.model.tags" type="text">
-    </md-input-container>
+    <br/>
+    <span class="smallHeader">Tags</span>
+    <md-chips ng-model="$ctrl.model.tags" placeholder="Separate tags with comma" secondary-placeholder="Separate tags with comma" readonly="false" md-separator-keys="$ctrl.keys"></md-chips>
 
     <div layout="row" layout-padding>
         <span flex></span>

@@ -8,6 +8,8 @@ import 'angular-material/angular-material.css';
 
 import ngMdIcons from 'angular-material-icons';
 
+import ngMessages from 'angular-messages';
+
 import EventsService from './services/events/events';
 import GroupsService from './services/groups/groups';
 import UserService from './services/user/user';
@@ -33,6 +35,7 @@ let app = angular.module('app', [
     uiRouter,
     angularMaterial,
     ngMdIcons,
+    ngMessages,
     UserService.name,
     EventsService.name,
     GroupsService.name,

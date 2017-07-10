@@ -24,22 +24,32 @@ class ViewRegisterComponentController{
     constructor($state,UserService){
         this.$state = $state;
         this.UserService = UserService;
+        this.usernameNotUnique = false;
     }
 
     $onInit() {
         this.register = {};
     }
 
-    submit(){
+    submit(form){
         let user = this.register.username;
         let password = this.register.password;
         let vorname = this.register.vorname;
         let surname = this.register.surname;
         let email = this.register.email;
 
-        this.UserService.register(user,password,vorname,surname,email).then(()=> {
-            this.$state.go('events',{});
-        });
+        this.UserService.register(user,password,vorname,surname,email).then(
+            ()=> {
+                this.$state.go('events',{});
+            },
+            ()=> {
+                form.$setSubmitted();
+            }
+        );
+    }
+
+    unique() {
+        return this.usernameNotUnique;
     }
 
     static get $inject(){

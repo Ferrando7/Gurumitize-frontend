@@ -7,12 +7,24 @@
             <md-card-content>
                 <p>{{$ctrl.group.description}}</p>
             </md-card-content>
-            <md-card-content>
-                <p>{{$ctrl.group.tags}}</p>
-            </md-card-content>
+            <md-chips ng-model="$ctrl.group.tags" readonly="true" md-removable="false">
+                <div>{{$chip}}</div>
+            </md-chips>
         </div>
         </md-content>
         <md-card-actions layout="row" layout-align="end center">
+            <div ng-if="!$ctrl.isJoined()">
+                <md-button class="md-icon-button" aria-label="Join Group" ng-click="$ctrl.join()" >
+                    <md-icon><ng-md-icon icon="person_add"></ng-md-icon></md-icon>
+                </md-button>
+            </div>
+
+            <div ng-if="$ctrl.isJoined()">
+                <md-button class="md-icon-button" aria-label="Leave Group" ng-click="$ctrl.leave()" >
+                    <md-icon><ng-md-icon icon="person_outline"></ng-md-icon></md-icon>
+                </md-button>
+            </div>
+
             <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit()" >
                 <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
             </md-button>

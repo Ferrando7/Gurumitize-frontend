@@ -23,6 +23,10 @@ class ViewGroupEditComponentController{
         this.model = {};
         this.$state = $state;
         this.GroupsService = GroupsService;
+
+        var comma = 188;
+        var enter = 13;
+        this.keys = [comma, enter];
     }
 
     $onInit() {

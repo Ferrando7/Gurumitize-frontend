@@ -1,0 +1,10 @@
+.smallHeader{
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    color: rgba(0,0,0,0.54);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-box-direction: normal;
+    font-size: 12px;
+    letter-spacing: 0.020em;
+    padding: 8px;
+}

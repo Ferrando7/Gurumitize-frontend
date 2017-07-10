@@ -1,6 +1,7 @@
 'use strict';
 
 import template from './view-group-create.template.html';
+import './view-group-create.style.css'
 
 import GroupsService from './../../services/groups/groups.service';
 import UserService from './../../services/user/user.service';
@@ -22,6 +23,12 @@ class ViewGroupCreateComponentController{
         this.$state = $state;
         this.GroupsService = GroupsService;
         this.UserService = UserService;
+
+        this.group['tags'] = [];
+
+        var comma = 188;
+        var enter = 13;
+        this.keys = [comma, enter];
     }
 
     cancel() {
@@ -31,10 +38,10 @@ class ViewGroupCreateComponentController{
     save() {
         let user = this.UserService.getCurrentUser();
 
-        this.group['user'] = user['_id'];
+        this.group['users'] = [user['_id']];
         this.GroupsService.create(this.group).then(data => {
             let _id = data['_id'];
-            this.$state.go('groups',{ groupId:_id});
+            this.$state.go('group',{ groupId:_id});
         });
 
     };
