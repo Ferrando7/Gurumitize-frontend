@@ -42,7 +42,7 @@ class ViewGroupEditComponentController{
     save() {
         let _id = this.group['_id'];
 
-        this.GroupsService.update(this.group).then(data => {
+        this.GroupsService.update(this.model).then(data => {
             this.group = JSON.parse(JSON.stringify(data));
 
             this.$state.go('group',{ groupId:_id});
