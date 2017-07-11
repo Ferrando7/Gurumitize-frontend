@@ -35,21 +35,36 @@ class ViewProfileEditComponentController{
         console.log(this.model);
     }
 
-    /*
+    remove(skill) {
+        let skills = this.model['skills'];
+
+        for(let i = 0; i < skills.length; i++) {
+            if(skills[i] === skill){
+                skills.splice(i,1);
+                this.model['skills'] = skills;
+                break;
+            }
+        }
+    }
+
+    addSkill() {
+        this.model['skills'].push({name:"", rank:0});
+    }
+
     cancel() {
-        this.$state.go('events',{});
+        let _id = user['_id'];
+        this.$state.go('profile',{userId:_id});
     };
 
     save() {
-        let user = this.UserService.getCurrentUser();
+        let _id = this.model['_id'];
 
-        this.movie['user'] = user['_id'];
-        this.MoviesService.create(this.movie).then(data => {
-            let _id = data['_id'];
-            this.$state.go('movie',{ movieId:_id});
+        this.UserService.update(this.model).then(data => {
+            this.model = JSON.parse(JSON.stringify(data));
+            this.$state.go('profile',{ userId:_id});
         });
 
-    };*/
+    };
     /*To-do
      Show the groups the user belongs to
      Show the skill

@@ -1,4 +1,4 @@
-<div layout="row" layout-padding>
+<div layout="column" layout-padding>
     <md-content class="md-no-momentum">
         <div layout="row" layout-padding>
             <div>
@@ -7,26 +7,62 @@
             <div layout="column">
                 <div layout="row">
                     <div layout="column" layout-padding>
-                        <div class="md-headline">{{$ctrl.model.vorname}} {{$ctrl.model.surname}}</div>
-                        <div>
-                            <md-input-container class="md-icon-float md-block">
-                                <label>Description</label>
-                                <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
-                                <input ng-model="$ctrl.model.bio" type="text">
+                        <div class="md-headline">
+                            <md-input-container class="md-block">
+                                <label>First name</label>
+                                <input ng-model="$ctrl.model.vorname">
                             </md-input-container>
                         </div>
+                        <div class="md-headline">
+                            <md-input-container class="md-block">
+                                <label>Last name</label>
+                                <input ng-model="$ctrl.model.surname">
+                            </md-input-container>
+                        </div>
+                        <div>
+                            <md-input-container class="md-block">
+                                <label>Description</label>
+                                <textarea ng-model="$ctrl.model.bio" rows="5"></textarea>
+                            </md-input-container>
+                        </div>
+                        <div layout-align="start center">
+                            <div class="md-title">Would like to learn: {{$ctrl.getCurrentUserGoals()}}</div>
+                        </div>
                     </div>
-                    <div layout="column" layout-padding>
-                        <div class="md-headline">Skill Level</div>
-                        <div class="md-subhead">Skill 1</div>
-                        <div class="md-subhead">Skill 2</div>
-                        <div class="md-subhead">Skill 3</div>
+                    <div layout="column">
+                        <div>
+                            <md-list>
+                                <md-list-item aria-label="Skill" ng-repeat="skill in $ctrl.model.skills">
+                                    <p> <md-input-container>
+                                        <input ng-model="skill.name" placeholder="Skill name">
+                                    </md-input-container>
+                                    <md-input-container>
+                                        <md-select ng-model="skill.rank">
+                                            <md-option value="5">5/5</md-option>
+                                            <md-option value="4">4/5</md-option>
+                                            <md-option value="3">3/5</md-option>
+                                            <md-option value="2">2/5</md-option>
+                                            <md-option value="1">1/5</md-option>
+                                        </md-select>
+                                    </md-input-container> </p>
+                                    <md-button class="md-icon-button" aria-label="Remove Skill" ng-click="$ctrl.remove(skill)">
+                                        <md-icon><ng-md-icon icon="delete"></ng-md-icon></md-icon>
+                                    </md-button>
+                                </md-list-item>
+                            </md-list>
+                        </div>
+                        <div layout-align="center center">
+                            <md-button class="md-raised" aria-label="Add Skill" ng-click="$ctrl.addSkill()">
+                                Add a skill
+                            </md-button>
+                        </div>
                     </div>
-                </div>
-                <div layout="row" layout-align="center center">
-                    <div class="md-title">Would like to learn: {{$ctrl.getCurrentUserGoals()}}</div>
                 </div>
             </div>
+        </div>
+        <div>
+            <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.save()">Save</md-button>
+            <md-button class="md-raised" ng-click="$ctrl.cancel()">Cancel</md-button>
         </div>
     </md-content>
 </div>

@@ -29,6 +29,17 @@ export default class UserService {
         })
     }
 
+    update(user) {
+
+        let url = `${ this.resourceUrl }${ user['_id'] }`;
+        return this.$http.put(url,user).then(responce => {
+
+            return new Promise((resolve, reject) => {
+                resolve(responce.data);
+            });
+        })
+    }
+
     register(user, pass, vorname, surname, email,bio,skills,goals) {
         return this.$http.post(`${ this.API_URL }/user/signup`, {
             username: user,
