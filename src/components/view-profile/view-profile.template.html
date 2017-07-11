@@ -7,7 +7,11 @@
             <div layout="column">
                 <div layout="row">
                     <div layout="column" layout-padding>
-                        <div class="md-headline">{{$ctrl.getCurrentUserName()}} {{$ctrl.getCurrentUserSurname()}}</div>
+                        <div class="md-headline">{{$ctrl.getCurrentUserName()}} {{$ctrl.getCurrentUserSurname()}}
+                            <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit()" >
+                                <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
+                            </md-button>
+                        </div>
                         <div class="md-subhead">{{$ctrl.getCurrentUserBio()}}</div>
                     </div>
                     <div layout="column" layout-padding>

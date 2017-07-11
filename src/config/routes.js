@@ -16,7 +16,7 @@ import WelcomeComponent from './../components/view-welcome/view-welcome.componen
 
 import EventsService from './../services/events/events.service';
 import GroupsService from './../services/groups/groups.service';
-
+import UserService from './../services/user/user.service'
 
 
 resolveEvent.$inject = ['$stateParams', EventsService.name];
@@ -39,6 +39,10 @@ function resolveGroups(groupsService){
     return groupsService.list();
 }
 
+resolveUser.$inject = ['$stateParams', UserService.name];
+function resolveUser($stateParams,userService){
+    return userService.get($stateParams.userId);
+}
 
 config.$inject = ['$stateProvider', '$urlRouterProvider'];
 export default function config ($stateProvider, $urlRouterProvider){
@@ -82,12 +86,18 @@ export default function config ($stateProvider, $urlRouterProvider){
             component: RegisterComponent.name,
         })
         .state('profile', {
-            url: '/profile',
+            url: '/profile/:userId',
             component: ProfileComponent.name,
+            resolve: {
+                user : resolveUser
+            }
         })
         .state('profileEdit', {
-            url: '/profileEdit',
+            url: '/profile/:userId/edit',
             component: ProfileEditComponent.name,
+            resolve: {
+                user : resolveUser
+            }
         })
         .state('groups', {
             url: '/groups',

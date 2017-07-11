@@ -10,6 +10,9 @@ class ViewProfileComponent {
     constructor(){
         this.controller = ViewProfileComponentController;
         this.template = template;
+        this.bindings = {
+            user: '<',
+        }
     }
 
     static get name() {
@@ -71,6 +74,17 @@ class ViewProfileComponentController{
     getCurrentUserGoals(){
         return "Ruby, Python"
     }
+
+    edit () {
+
+        if (this.UserService.isAuthenticated()) {
+            let _id = this.user['_id'];
+            this.$state.go('profileEdit',{ userId:_id});
+        } else {
+            this.$state.go('login',{});
+        }
+
+    };
 
 
     static get $inject(){

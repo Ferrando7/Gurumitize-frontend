@@ -7,8 +7,14 @@
             <div layout="column">
                 <div layout="row">
                     <div layout="column" layout-padding>
-                        <div class="md-headline">{{$ctrl.getCurrentUserName()}} {{$ctrl.getCurrentUserSurname()}}</div>
-                        <div class="md-subhead">{{$ctrl.getCurrentUserBio()}}</div>
+                        <div class="md-headline">{{$ctrl.model.vorname}} {{$ctrl.model.surname}}</div>
+                        <div>
+                            <md-input-container class="md-icon-float md-block">
+                                <label>Description</label>
+                                <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
+                                <input ng-model="$ctrl.model.bio" type="text">
+                            </md-input-container>
+                        </div>
                     </div>
                     <div layout="column" layout-padding>
                         <div class="md-headline">Skill Level</div>

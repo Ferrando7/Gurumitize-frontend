@@ -10,6 +10,9 @@ class ViewProfileEditComponent {
     constructor(){
         this.controller = ViewProfileEditComponentController;
         this.template = template;
+        this.bindings = {
+            user: '<',
+        }
     }
 
     static get name() {
@@ -19,11 +22,19 @@ class ViewProfileEditComponent {
 
 class ViewProfileEditComponentController{
     constructor($state,UserService){
+        this.model = {};
         //this.group = {};
         this.$state = $state;
         //this.GroupsService = GroupsService;
         this.UserService = UserService;
     }
+
+    $onInit() {
+        //Clone the user Data
+        this.model = JSON.parse(JSON.stringify(this.user));
+        console.log(this.model);
+    }
+
     /*
     cancel() {
         this.$state.go('events',{});
