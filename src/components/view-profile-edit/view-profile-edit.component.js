@@ -51,7 +51,7 @@ class ViewProfileEditComponentController{
     }
 
     cancel() {
-        let _id = user['_id'];
+        let _id = this.model['_id'];
         this.$state.go('profile',{userId:_id});
     };
 

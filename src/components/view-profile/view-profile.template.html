@@ -1,13 +1,15 @@
 <div layout="column" layout-padding>
     <md-content class="md-no-momentum">
         <div layout="row" layout-padding>
-            <div layout="column" flex="30">
+            <div layout="column" flex="30" layout-align="center start">
                 <div>
                     <img ng-src="{{$ctrl.imagePath}}" class="md-media-md">
                 </div>
-                <div layout="column" layout-align="center start">
+                <div ng-if="!$ctrl.isOwnProfile()">
                     <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.addMentor()">Add as Mentor</md-button>
                     <md-button class="md-raised md-primary" ng-click="$ctrl.addMentee()">Add as Mentee</md-button>
+                </div>
+                <div ng-if="$ctrl.isOwnProfile()">
                     <md-button class="md-raised" ng-click="$ctrl.edit()">
                         <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
                     </md-button>

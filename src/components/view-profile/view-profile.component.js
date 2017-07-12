@@ -69,13 +69,23 @@ class ViewProfileComponentController{
     edit () {
 
         if (this.UserService.isAuthenticated()) {
-            let _id = this.user['_id'];
+            let _id = this.model['_id'];
             this.$state.go('profileEdit',{ userId:_id});
         } else {
             this.$state.go('login',{});
         }
 
     };
+
+    isOwnProfile() {
+        let modelId = this.model['_id'];
+        let currentId = this.UserService.getCurrentUser()._id;
+
+        console.log(modelId);
+        console.log(currentId);
+
+        return modelId === currentId;
+    }
 
 
     static get $inject(){
