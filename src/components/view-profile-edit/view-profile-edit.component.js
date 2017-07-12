@@ -30,8 +30,14 @@ class ViewProfileEditComponentController{
     }
 
     $onInit() {
-        //Clone the user Data
         this.model = JSON.parse(JSON.stringify(this.user));
+        let _id = this.model['_id'];
+
+        if(this.UserService.isAuthenticated()) {
+            if(this.UserService.getCurrentUser()._id !== _id){
+                this.$state.go('profile',{userId:_id});
+            }
+        }
     }
 
     remove(skill) {
