@@ -32,7 +32,6 @@ class ViewProfileEditComponentController{
     $onInit() {
         //Clone the user Data
         this.model = JSON.parse(JSON.stringify(this.user));
-        console.log(this.model);
     }
 
     remove(skill) {
@@ -89,15 +88,6 @@ class ViewProfileEditComponentController{
         let user = this.UserService.getCurrentUser();
         return user.email;
     }
-
-    getCurrentUserBio(){
-        return "A really cool bio.\n\nI'm really cool."
-    }
-
-    getCurrentUserGoals(){
-        return "Ruby, Python"
-    }
-
 
     static get $inject(){
         return ['$state', UserService.name];

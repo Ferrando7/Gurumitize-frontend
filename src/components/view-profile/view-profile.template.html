@@ -1,28 +1,38 @@
-<div layout="row" layout-padding>
+<div layout="column" layout-padding>
     <md-content class="md-no-momentum">
         <div layout="row" layout-padding>
-            <div>
-                <h4>Profile picture</h4>
-            </div>
-            <div layout="column">
-                <div layout="row">
-                    <div layout="column" layout-padding>
-                        <div class="md-headline">{{$ctrl.getCurrentUserName()}} {{$ctrl.getCurrentUserSurname()}}
-                            <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit()" >
-                                <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
-                            </md-button>
-                        </div>
-                        <div class="md-subhead">{{$ctrl.getCurrentUserBio()}}</div>
-                    </div>
-                    <div layout="column" layout-padding>
-                        <div class="md-headline">Skill Level</div>
-                        <div class="md-subhead">Skill 1</div>
-                        <div class="md-subhead">Skill 2</div>
-                        <div class="md-subhead">Skill 3</div>
-                    </div>
+            <div layout="column" flex="30">
+                <div>
+                    <img ng-src="{{$ctrl.imagePath}}" class="md-media-md">
                 </div>
-                <div layout="row" layout-align="center center">
-                    <div class="md-title">Would like to learn: {{$ctrl.getCurrentUserGoals()}}</div>
+                <div layout="column" layout-align="center start">
+                    <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.addMentor()">Add as Mentor</md-button>
+                    <md-button class="md-raised md-primary" ng-click="$ctrl.addMentee()">Add as Mentee</md-button>
+                    <md-button class="md-raised" ng-click="$ctrl.edit()">
+                        <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
+                    </md-button>
+                </div>
+            </div>
+            <div layout="column" flex="70">
+                <div layout="row">
+                    <div layout="column" flex="50">
+                        <div>
+                            <h3 class="md-title">{{$ctrl.model.vorname}} {{$ctrl.model.surname}}</h3>
+                            <p class="md-body-1">{{$ctrl.model.bio}}</p>
+                        </div>
+                        <div>
+                            <h3 class="md-subhead">{{$ctrl.model.vorname}} would like to learn</h3>
+                            <p class="md-body-1">{{$ctrl.model.goals}}</p>
+                        </div>
+                    </div>
+                    <div layout="column" flex="50">
+                        <md-list>
+                            <md-list-item aria-label="Skill" ng-repeat="skill in $ctrl.model.skills">
+                                <p class="md-body-2">{{skill.name}} </p>
+                                <p class="md-body-1">{{skill.rank}}</p>
+                            </md-list-item>
+                        </md-list>
+                    </div>
                 </div>
             </div>
         </div>

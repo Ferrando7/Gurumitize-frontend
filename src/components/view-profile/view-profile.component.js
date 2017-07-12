@@ -22,26 +22,25 @@ class ViewProfileComponent {
 
 class ViewProfileComponentController{
     constructor($state,UserService){
+        this.model = {};
         //this.group = {};
         this.$state = $state;
         //this.GroupsService = GroupsService;
         this.UserService = UserService;
+        this.imagePath = 'http://via.placeholder.com/200x200';
     }
-    /*
-    cancel() {
-        this.$state.go('events',{});
+
+    $onInit() {
+        this.model = JSON.parse(JSON.stringify(this.user));
+    }
+
+    addMentor() {
+
     };
 
-    save() {
-        let user = this.UserService.getCurrentUser();
+    addMentee() {
 
-        this.movie['user'] = user['_id'];
-        this.MoviesService.create(this.movie).then(data => {
-            let _id = data['_id'];
-            this.$state.go('movie',{ movieId:_id});
-        });
-
-    };*/
+    };
     /*To-do
      Show the groups the user belongs to
      Show the skill
@@ -65,14 +64,6 @@ class ViewProfileComponentController{
     getCurrentUserEmail(){
         let user = this.UserService.getCurrentUser();
         return user.email;
-    }
-
-    getCurrentUserBio(){
-        return "A really cool bio. I'm really cool."
-    }
-
-    getCurrentUserGoals(){
-        return "Ruby, Python"
     }
 
     edit () {
