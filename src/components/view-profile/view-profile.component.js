@@ -81,9 +81,6 @@ class ViewProfileComponentController{
         let modelId = this.model['_id'];
         let currentId = this.UserService.getCurrentUser()._id;
 
-        console.log(modelId);
-        console.log(currentId);
-
         return modelId === currentId;
     }
 
