@@ -10,6 +10,7 @@ export default class UserService {
     constructor($http,$window,API_URL) {
         this.$http = $http;
         this.$window = $window;
+        this.API_URL = API_URL;
         this.resourceUrl = `${ API_URL }/user/`;
 
     }
