@@ -1,14 +1,49 @@
+
+
+    <script language="javascript">
+        angular
+            .module('firstApplication', ['ngMaterial'])
+            .controller('toastController', toastController);
+
+        function toastController ($scope, $mdToast, $document) {
+            $scope.showToast1 = function() {
+                $mdToast.show(
+                    $mdToast.simple()
+                        .textContent('Hello World!')
+                        .hideDelay(3000)
+                );
+            };
+
+            $scope.showToast2 = function() {
+                var toast = $mdToast.simple()
+                    .textContent('Hello World!')
+                    .action('OK')
+                    .highlightAction(false);
+                $mdToast.show(toast).then(function(response) {
+                    if ( response == 'ok' ) {
+                        alert('You clicked \'OK\'.');
+                    }
+                });
+            }
+        }
+    </script>
+
+
+
+
+
 <div layout="row" layout-padding>
     <md-content class="md-no-momentum">
+
         <div>
-            <h4>Profile picture</h4>
+            <h4 align="center">Profile picture</h4>
         </div>
 
         <div layout="row" layout-padding>
             <div layout="column" layout-padding>
                 <div>
                     <form name="profileForm">
-                        <span class="md-headline">Username: </span>
+                        <span class="md-headline">Username  : </span>
                         <span class="md-subhead">{{$ctrl.getCurrentUser()}}</span>
                     </form>
                 </div>
@@ -32,5 +67,10 @@
         <div>
             <span class="md-headline">Would like to learn: </span>
         </div>
+        </div>
     </md-content>
+
 </div>
+</body>
+</head>
+</html>

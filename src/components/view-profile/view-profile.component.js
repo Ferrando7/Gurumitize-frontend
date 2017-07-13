@@ -10,6 +10,7 @@ class ViewProfileComponent {
     constructor(){
         this.controller = ViewProfileComponentController;
         this.template = template;
+
     }
 
     static get name() {
@@ -23,6 +24,7 @@ class ViewProfileComponentController{
         this.$state = $state;
         //this.GroupsService = GroupsService;
         this.UserService = UserService;
+
     }
     /*
     cancel() {
