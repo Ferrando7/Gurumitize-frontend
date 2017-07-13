@@ -64,7 +64,8 @@ export default function config ($stateProvider, $urlRouterProvider){
             url: '/events/:eventId',
             component: EventComponent.name,
             resolve: {
-                event : resolveEvent
+                event : resolveEvent,
+                groups : resolveGroups
             }
 
         })
