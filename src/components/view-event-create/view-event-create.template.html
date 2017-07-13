@@ -8,11 +8,26 @@
                 <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
                 <input ng-model="$ctrl.event.title" type="text">
             </md-input-container>
-            <md-input-container class="md-icon-float md-block">
-                <label>Group</label>
-                <md-icon><ng-md-icon icon="date_range" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.event.year" type="text">
-            </md-input-container>
+            <form name="groupForm">
+                <md-autocomplete required
+                    md-input-name="autocompleteField"
+                    md-selected-item="$ctrl.event.group"
+                    md-search-text="$ctrl.searchText"
+                    md-items="group in $ctrl.getMatches($ctrl.searchText)"
+                    md-item-text="group.title"
+                    placeholder="Choose a group">
+                    <md-item-template>
+                        <span md-highlight-text="$ctrl.searchText" md-highlight-flags="^i">{{group.title}}</span>
+                    </md-item-template>
+                    <md-not-found>
+                        No groups matching "{{$ctrl.searchText}}" were found.
+                    </md-not-found>
+                    <div ng-messages="searchForm.autocompleteField.$error" ng-if="groupForm.autocompleteField.$touched">
+                        <div ng-message="required">You <b>must</b> choose a group.</div>
+                        <div ng-message="md-require-match">Please select an existing group.</div>
+                    </div>
+                </md-autocomplete>
+            </form>
             <md-input-container class="md-icon-float md-block">
                 <label>Location</label>
                 <md-icon><ng-md-icon icon="location_on" ></ng-md-icon></md-icon>
