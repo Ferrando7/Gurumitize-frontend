@@ -35,10 +35,8 @@
                     <img ng-src="{{$ctrl.imagePath}}" class="md-media-md">
                 </div>
                 <div>
-                    <form name="profileForm">
-                        <span class="md-headline">Username: </span>
-                        <span class="md-subhead">{{$ctrl.getCurrentUser()}}</span>
-                    </form>
+                    <span class="md-title">Username: </span>
+                    <span class="md-subhead">{{$ctrl.getCurrentUser()}}</span>
                 </div>
                 <div ng-if="!$ctrl.isOwnProfile()">
                     <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.addMentor()">Add as Mentor</md-button>
@@ -54,7 +52,7 @@
                 <div layout="row">
                     <div layout="column" flex="50">
                         <div>
-                            <h3 class="md-title">{{$ctrl.model.vorname}} {{$ctrl.model.surname}}</h3>
+                            <h4 class="md-headline">{{$ctrl.model.vorname}} {{$ctrl.model.surname}}</h4>
                             <p class="md-body-1">{{$ctrl.model.bio}}</p>
                         </div>
                         <div>
@@ -63,6 +61,7 @@
                         </div>
                     </div>
                     <div layout="column" flex="50">
+                        <h3 class="md-subhead">Skill levels</h3>
                         <md-list>
                             <md-list-item aria-label="Skill" ng-repeat="skill in $ctrl.model.skills">
                                 <p class="md-body-2">{{skill.name}} </p>
