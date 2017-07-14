@@ -36,7 +36,7 @@
                 </div>
                 <div>
                     <span class="md-title">Username: </span>
-                    <span class="md-subhead">{{$ctrl.getCurrentUser()}}</span>
+                    <span class="md-subhead">{{$ctrl.user.username}}</span>
                 </div>
                 <div ng-if="!$ctrl.isOwnProfile()">
                     <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.addMentor()">Add as Mentor</md-button>
