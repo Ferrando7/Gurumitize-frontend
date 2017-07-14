@@ -6,8 +6,11 @@
                 <div layout="column">
                     <span class="md-headline">{{$ctrl.event.title}}</span>
                     <span class="md-subhead">{{$ctrl.event.year}}</span>
-                    <div flex-gt-xs><md-icon><ng-md-icon icon="location_on" ></ng-md-icon></md-icon>
-                        <p>{{$ctrl.event.location}}</p>
+                    <div flex-gt-xs>
+                        <p><md-icon><ng-md-icon icon="location_on" ></ng-md-icon></md-icon> {{$ctrl.event.location}}</p>
+                    </div>
+                    <div ng-show="$ctrl.groupExists()">
+                        <md-button md-no-ink class="md-primary" ng-click="$ctrl.toGroup()">{{$ctrl.group.title}}</md-button>
                     </div>
                     <div layout="row">
                         <div layout="column">
