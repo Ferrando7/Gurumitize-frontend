@@ -19,6 +19,20 @@ export default class UserService {
         return 'UserService';
     }
 
+    list() {
+
+        let url = this.resourceUrl;
+        return this.$http.get(url).then(responce => {
+
+            return new Promise((resolve, reject) => {
+                resolve(responce.data);
+
+            });
+
+        });
+
+    }
+
     get(id) {
         let url = `${ this.resourceUrl }${ id }`;
         return this.$http.get(url).then(responce => {

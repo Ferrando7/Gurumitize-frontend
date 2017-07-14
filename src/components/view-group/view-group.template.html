@@ -22,23 +22,28 @@
             </md-button>
         </div>
     </div>
-    <div layout="row">
-        <div layout="column" layout-padding layout-align="start start" flex="50">
+    <div layout="row" flex="60">
+        <div layout="column" layout-padding layout-align="start start" flex>
             <md-content class="md-no-momentum">
                 <h3 class="md-title">Description</h3>
-                <p class="md-body-1">{{$ctrl.group.description}}</p>
+                <p class="md-body-2">{{$ctrl.group.description}}</p>
+            </md-content>
+            <md-content class="md-no-momentum">
+                <h3 class="md-title">Tags </h3>
+                <md-chips ng-model="$ctrl.group.tags" readonly="true" md-removable="false">
+                    <div>{{$chip}}</div>
+                </md-chips>
             </md-content>
         </div>
-        <div layout="column" layout-padding layout-align="start start" flex="50">
-            <h3 class="md-title">Members</h3>
-        </div>
-    </div>
-    <div layout="row" layout-padding flex>
-        <div layout="row" layout-align="start center" layout-padding flex>
-            <h3 class="md-title">Tags </h3>
-            <md-chips ng-model="$ctrl.group.tags" readonly="true" md-removable="false">
-                <div>{{$chip}}</div>
-            </md-chips>
+        <div layout="column" layout-padding layout-align="start start" flex>
+            <md-content class="md-no-momentum">
+                <h3 class="md-title">Members</h3>
+                <md-list>
+                    <md-list-item ng-click="$ctrl.toUser(member)" aria-label="Members" ng-repeat="member in $ctrl.members">
+                        <p class="md-body-2">{{member.vorname}} {{member.surname}}</p>
+                    </md-list-item>
+                </md-list>
+            </md-content>
         </div>
     </div>
 </div>
