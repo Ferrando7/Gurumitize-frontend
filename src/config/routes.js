@@ -78,7 +78,8 @@ export default function config ($stateProvider, $urlRouterProvider){
             url: '/events/:eventId/edit',
             component: EventEditComponent.name,
             resolve: {
-                event : resolveEvent
+                event : resolveEvent,
+                groups : resolveGroups
             }
         })
         .state('login', {

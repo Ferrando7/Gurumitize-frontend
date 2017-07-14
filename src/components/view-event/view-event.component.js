@@ -63,6 +63,10 @@ class ViewEventComponentController{
         this.$state.go('group',{ groupId:_id});
     };
 
+    groupExists() {
+        return "undefined" !== typeof this.group;
+    }
+
     static get $inject(){
         return ['$state', EventsService.name, UserService.name];
     }

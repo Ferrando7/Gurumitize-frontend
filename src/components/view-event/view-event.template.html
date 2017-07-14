@@ -9,7 +9,7 @@
                     <div flex-gt-xs>
                         <p><md-icon><ng-md-icon icon="location_on" ></ng-md-icon></md-icon> {{$ctrl.event.location}}</p>
                     </div>
-                    <div>
+                    <div ng-show="$ctrl.groupExists()">
                         <md-button md-no-ink class="md-primary" ng-click="$ctrl.toGroup()">{{$ctrl.group.title}}</md-button>
                     </div>
                     <div layout="row">
