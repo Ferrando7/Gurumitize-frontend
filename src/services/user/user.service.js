@@ -11,6 +11,7 @@ export default class UserService {
         this.$http = $http;
         this.$window = $window;
         this.API_URL = API_URL;
+        this.resourceUrl = `${ API_URL }/user/`;
 
     }
 
@@ -18,13 +19,38 @@ export default class UserService {
         return 'UserService';
     }
 
-    register(user, pass, vorname, surname, email) {
+    get(id) {
+        let url = `${ this.resourceUrl }${ id }`;
+        return this.$http.get(url).then(responce => {
+
+            return new Promise((resolve, reject) => {
+                resolve(responce.data);
+            });
+
+        })
+    }
+
+    update(user) {
+
+        let url = `${ this.resourceUrl }${ user['_id'] }`;
+        return this.$http.put(url,user).then(responce => {
+
+            return new Promise((resolve, reject) => {
+                resolve(responce.data);
+            });
+        })
+    }
+
+    register(user, pass, vorname, surname, email,bio,skills,goals) {
         return this.$http.post(`${ this.API_URL }/user/signup`, {
             username: user,
             password: pass,
             vorname: vorname,
             surname: surname,
-            email: email
+            email: email,
+            bio: bio,
+            skills: skills,
+            goals: goals
         });
     }
 

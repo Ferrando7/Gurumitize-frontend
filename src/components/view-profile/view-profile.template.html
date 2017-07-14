@@ -1,36 +1,76 @@
-<div layout="row" layout-padding>
+<div layout="column" layout-padding>
     <md-content class="md-no-momentum">
-        <div>
-            <h4>Profile picture</h4>
-        </div>
+
+    <script language="javascript">
+        angular
+            .module('firstApplication', ['ngMaterial'])
+            .controller('toastController', toastController);
+
+        function toastController ($scope, $mdToast, $document) {
+            $scope.showToast1 = function() {
+                $mdToast.show(
+                    $mdToast.simple()
+                        .textContent('Hello World!')
+                        .hideDelay(3000)
+                );
+            };
+
+            $scope.showToast2 = function() {
+                var toast = $mdToast.simple()
+                    .textContent('Hello World!')
+                    .action('OK')
+                    .highlightAction(false);
+                $mdToast.show(toast).then(function(response) {
+                    if ( response == 'ok' ) {
+                        alert('You clicked \'OK\'.');
+                    }
+                });
+            }
+        }
+    </script>
 
         <div layout="row" layout-padding>
-            <div layout="column" layout-padding>
+            <div layout="column" flex="30" layout-align="center start">
                 <div>
-                    <form name="profileForm">
-                        <span class="md-headline">Username: </span>
-                        <span class="md-subhead">{{$ctrl.getCurrentUser()}}</span>
-                    </form>
+                    <img ng-src="{{$ctrl.imagePath}}" class="md-media-md">
                 </div>
                 <div>
-                    <span class="md-headline">Name: </span>
-                    <span class="md-subhead">{{$ctrl.getCurrentUserName()}}</span>
+                    <span class="md-title">Username: </span>
+                    <span class="md-subhead">{{$ctrl.getCurrentUser()}}</span>
                 </div>
-                <div>
-                    <span class="md-headline">Surname: </span>
-                    <span class="md-subhead">{{$ctrl.getCurrentUserSurname()}}</span>
+                <div ng-if="!$ctrl.isOwnProfile()">
+                    <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.addMentor()">Add as Mentor</md-button>
+                    <md-button class="md-raised md-primary" ng-click="$ctrl.addMentee()">Add as Mentee</md-button>
                 </div>
-                <div>
-                    <span class="md-headline">Email: </span>
-                    <span class="md-subhead">{{$ctrl.getCurrentUserEmail()}}</span>
+                <div ng-if="$ctrl.isOwnProfile()">
+                    <md-button class="md-raised" ng-click="$ctrl.edit()">
+                        <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
+                    </md-button>
                 </div>
             </div>
-            <div>
-                <span class="md-headline">Skill Level: </span>
+            <div layout="column" flex="70">
+                <div layout="row">
+                    <div layout="column" flex="50">
+                        <div>
+                            <h4 class="md-headline">{{$ctrl.model.vorname}} {{$ctrl.model.surname}}</h4>
+                            <p class="md-body-1">{{$ctrl.model.bio}}</p>
+                        </div>
+                        <div>
+                            <h3 class="md-subhead">{{$ctrl.model.vorname}} would like to learn</h3>
+                            <p class="md-body-1">{{$ctrl.model.goals}}</p>
+                        </div>
+                    </div>
+                    <div layout="column" flex="50">
+                        <h3 class="md-subhead">Skill levels</h3>
+                        <md-list>
+                            <md-list-item aria-label="Skill" ng-repeat="skill in $ctrl.model.skills">
+                                <p class="md-body-2">{{skill.name}} </p>
+                                <p class="md-body-1">{{skill.rank}}</p>
+                            </md-list-item>
+                        </md-list>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div>
-            <span class="md-headline">Would like to learn: </span>
         </div>
     </md-content>
 </div>

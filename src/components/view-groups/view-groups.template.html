@@ -1,6 +1,12 @@
-<md-list>
 
-    <md-list-item aria-label="Event" ng-click="$ctrl.details(group)" class="noright" ng-repeat="group in $ctrl.groups">
+
+<md-list>
+    <md-input-container class="md-icon-float md-block">
+        <label>Search</label>
+        <md-icon><ng-md-icon icon="search" ></ng-md-icon></md-icon>
+        <input ng-model="$ctrl.searchkey" ng-change="$ctrl.search()" type="text">
+    </md-input-container>
+    <md-list-item aria-label="Event" ng-click="$ctrl.details(group)" class="noright" ng-repeat="group in $ctrl.groupsview">
         <md-icon><ng-md-icon icon="group"></ng-md-icon></md-icon>
 
         <p> {{group.title}} </p>

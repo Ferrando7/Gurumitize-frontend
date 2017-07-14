@@ -1,14 +1,14 @@
 
 'use strict';
 
-import template from './view-profile.template.html';
+import template from './view-profile-edit.template.html';
 
 import UserService from './../../services/user/user.service';
 //import GroupsService from './../../services/groups/groups.service';
 
-class ViewProfileComponent {
+class ViewProfileEditComponent {
     constructor(){
-        this.controller = ViewProfileComponentController;
+        this.controller = ViewProfileEditComponentController;
         this.template = template;
         this.bindings = {
             user: '<',
@@ -16,29 +16,58 @@ class ViewProfileComponent {
     }
 
     static get name() {
-        return 'viewProfile';
+        return 'viewProfileEdit';
     }
 }
 
-class ViewProfileComponentController{
+class ViewProfileEditComponentController{
     constructor($state,UserService){
         this.model = {};
         //this.group = {};
         this.$state = $state;
         //this.GroupsService = GroupsService;
         this.UserService = UserService;
-        this.imagePath = 'http://via.placeholder.com/200x200';
     }
 
     $onInit() {
         this.model = JSON.parse(JSON.stringify(this.user));
+        let _id = this.model['_id'];
+
+        if(this.UserService.isAuthenticated()) {
+            if(this.UserService.getCurrentUser()._id !== _id){
+                this.$state.go('profile',{userId:_id});
+            }
+        }
     }
 
-    addMentor() {
+    remove(skill) {
+        let skills = this.model['skills'];
 
+        for(let i = 0; i < skills.length; i++) {
+            if(skills[i] === skill){
+                skills.splice(i,1);
+                this.model['skills'] = skills;
+                break;
+            }
+        }
+    }
+
+    addSkill() {
+        this.model['skills'].push({name:"", rank:0});
+    }
+
+    cancel() {
+        let _id = this.model['_id'];
+        this.$state.go('profile',{userId:_id});
     };
 
-    addMentee() {
+    save() {
+        let _id = this.model['_id'];
+
+        this.UserService.update(this.model).then(data => {
+            this.model = JSON.parse(JSON.stringify(data));
+            this.$state.go('profile',{ userId:_id});
+        });
 
     };
     /*To-do
@@ -66,25 +95,6 @@ class ViewProfileComponentController{
         return user.email;
     }
 
-    edit () {
-
-        if (this.UserService.isAuthenticated()) {
-            let _id = this.model['_id'];
-            this.$state.go('profileEdit',{ userId:_id});
-        } else {
-            this.$state.go('login',{});
-        }
-
-    };
-
-    isOwnProfile() {
-        let modelId = this.model['_id'];
-        let currentId = this.UserService.getCurrentUser()._id;
-
-        return modelId === currentId;
-    }
-
-
     static get $inject(){
         return ['$state', UserService.name];
     }
@@ -92,4 +102,4 @@ class ViewProfileComponentController{
 }
 
 
-export default ViewProfileComponent;
+export default ViewProfileEditComponent;

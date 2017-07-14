@@ -59,7 +59,9 @@ class AppHeaderComponentController{
     }
 
     profile(){
-        this.$state.go('profile',{});
+        let user = this.UserService.getCurrentUser();
+        let _id = user._id;
+        this.$state.go('profile',{ userId:_id});
     }
 
     static get $inject(){
