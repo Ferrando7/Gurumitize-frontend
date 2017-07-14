@@ -29,6 +29,7 @@ import ViewGroupCreate from './components/view-group-create/view-group-create';
 import ViewLogin from './components/view-login/view-login';
 import ViewRegister from './components/view-register/view-register';
 import ViewProfile from './components/view-profile/view-profile';
+import ViewProfileEdit from './components/view-profile-edit/view-profile-edit';
 import ViewWelcome from './components/view-welcome/view-welcome';
 
 let app = angular.module('app', [
@@ -51,6 +52,7 @@ let app = angular.module('app', [
     ViewRegister.name,
     ViewLogin.name,
     ViewProfile.name,
+    ViewProfileEdit.name,
     ViewWelcome.name
 ]);
 

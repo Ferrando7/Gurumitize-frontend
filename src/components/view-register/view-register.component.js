@@ -37,8 +37,11 @@ class ViewRegisterComponentController{
         let vorname = this.register.vorname;
         let surname = this.register.surname;
         let email = this.register.email;
+        let bio = "";
+        let skills = [];
+        let goals = "";
 
-        this.UserService.register(user,password,vorname,surname,email).then(
+        this.UserService.register(user,password,vorname,surname,email,bio,skills,goals).then(
             ()=> {
                 this.$state.go('events',{});
             },
