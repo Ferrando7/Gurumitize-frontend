@@ -1,38 +1,44 @@
-</md-card>
-<md-card-content>
-    <div layout="column" layout-padding>
-        </md-content>
-        <div layout="row" layout-padding>
-            <span class="md-headline">{{$ctrl.group.title}}</span>
-            <md-card-content>
-                <p>{{$ctrl.group.description}}</p>
-            </md-card-content>
-            <md-chips ng-model="$ctrl.group.tags" readonly="true" md-removable="false">
-                <div>{{$chip}}</div>
-            </md-chips>
+<div layout="column">
+    <div layout="row" layout-padding layout-align="start center">
+        <div flex="70">
+            <h2 class="md-headline">{{$ctrl.group.title}}</h2>
         </div>
-        </md-content>
-        <md-card-actions layout="row" layout-align="end center">
+        <div layout="row" layout-padding layout-align="end center" flex="30">
             <div ng-if="!$ctrl.isJoined()">
                 <md-button class="md-icon-button" aria-label="Join Group" ng-click="$ctrl.join()" >
                     <md-icon><ng-md-icon icon="person_add"></ng-md-icon></md-icon>
                 </md-button>
             </div>
-
             <div ng-if="$ctrl.isJoined()">
                 <md-button class="md-icon-button" aria-label="Leave Group" ng-click="$ctrl.leave()" >
                     <md-icon><ng-md-icon icon="person_outline"></ng-md-icon></md-icon>
                 </md-button>
             </div>
-
             <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit()" >
                 <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
             </md-button>
-
             <md-button class="md-icon-button"aria-label="Delete Item" ng-click="$ctrl.delete()" >
                 <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
             </md-button>
-        </md-card-actions>
+        </div>
     </div>
-</md-card-content>
-</md-card>
+    <div layout="row">
+        <div layout="column" layout-padding layout-align="start start" flex="50">
+            <md-content class="md-no-momentum">
+                <h3 class="md-title">Description</h3>
+                <p class="md-body-1">{{$ctrl.group.description}}</p>
+            </md-content>
+        </div>
+        <div layout="column" layout-padding layout-align="start start" flex="50">
+            <h3 class="md-title">Members</h3>
+        </div>
+    </div>
+    <div layout="row" layout-padding flex>
+        <div layout="row" layout-align="start center" layout-padding flex>
+            <h3 class="md-title">Tags </h3>
+            <md-chips ng-model="$ctrl.group.tags" readonly="true" md-removable="false">
+                <div>{{$chip}}</div>
+            </md-chips>
+        </div>
+    </div>
+</div>
