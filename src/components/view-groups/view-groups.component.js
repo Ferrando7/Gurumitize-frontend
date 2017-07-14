@@ -23,14 +23,22 @@ class ViewGroupsComponent {
 }
 
 class ViewGroupsComponentController{
-    constructor($state,$scope,GroupsService,UserService){
+    constructor($state,$scope,GroupsService,UserService) {
         this.$state = $state;
         this.$scope = $scope;
         this.GroupsService = GroupsService;
         this.UserService = UserService;
-
-    }
-
+        this.searchkey = "";
+        this.groupsview=this.groups;
+    };
+    search()
+    {
+         let searchkey=this.searchkey;
+        this.groupsview=this.groups.filter(function(g){
+            return g.title.indexOf(searchkey)>=0;
+        });
+        console.log(this.groupsview);
+    };
     details (group) {
         let _id = group['_id'];
         this.$state.go('group',{ groupId:_id});

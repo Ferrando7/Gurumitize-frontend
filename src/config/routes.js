@@ -11,11 +11,12 @@ import GroupCreateComponent from './../components/view-group-create/view-group-c
 import LoginComponent from './../components/view-login/view-login.component';
 import RegisterComponent from './../components/view-register/view-register.component';
 import ProfileComponent from './../components/view-profile/view-profile.component';
+import ProfileEditComponent from './../components/view-profile-edit/view-profile-edit.component';
 import WelcomeComponent from './../components/view-welcome/view-welcome.component';
 
 import EventsService from './../services/events/events.service';
 import GroupsService from './../services/groups/groups.service';
-
+import UserService from './../services/user/user.service'
 
 
 resolveEvent.$inject = ['$stateParams', EventsService.name];
@@ -38,6 +39,10 @@ function resolveGroups(groupsService){
     return groupsService.list();
 }
 
+resolveUser.$inject = ['$stateParams', UserService.name];
+function resolveUser($stateParams,userService){
+    return userService.get($stateParams.userId);
+}
 
 config.$inject = ['$stateProvider', '$urlRouterProvider'];
 export default function config ($stateProvider, $urlRouterProvider){
@@ -55,13 +60,17 @@ export default function config ($stateProvider, $urlRouterProvider){
         })
         .state('eventAdd', {
             url: '/events/new',
-            component: EventCreateComponent.name
+            component: EventCreateComponent.name,
+            resolve: {
+                groups : resolveGroups
+            }
         })
         .state('event', {
             url: '/events/:eventId',
             component: EventComponent.name,
             resolve: {
-                event : resolveEvent
+                event : resolveEvent,
+                groups : resolveGroups
             }
 
         })
@@ -69,7 +78,8 @@ export default function config ($stateProvider, $urlRouterProvider){
             url: '/events/:eventId/edit',
             component: EventEditComponent.name,
             resolve: {
-                event : resolveEvent
+                event : resolveEvent,
+                groups : resolveGroups
             }
         })
         .state('login', {
@@ -81,8 +91,18 @@ export default function config ($stateProvider, $urlRouterProvider){
             component: RegisterComponent.name,
         })
         .state('profile', {
-            url: '/profile',
+            url: '/profile/:userId',
             component: ProfileComponent.name,
+            resolve: {
+                user : resolveUser
+            }
+        })
+        .state('profileEdit', {
+            url: '/profile/:userId/edit',
+            component: ProfileEditComponent.name,
+            resolve: {
+                user : resolveUser
+            }
         })
         .state('groups', {
             url: '/groups',

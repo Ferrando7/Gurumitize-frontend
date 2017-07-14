@@ -11,6 +11,7 @@ class ViewEventComponent {
         this.template = template;
         this.bindings = {
             event: '<',
+            groups: '<',
         }
 
     }
@@ -27,7 +28,10 @@ class ViewEventComponentController{
         this.$state = $state;
         this.EventsService = EventsService;
         this.UserService = UserService;
+    }
 
+    $onInit () {
+        this.group = this.groups.find(g => g._id === this.event['group']);
     }
 
     edit () {
@@ -54,21 +58,13 @@ class ViewEventComponentController{
         }
     };
 
+    toGroup() {
+        let _id = this.event['group'];
+        this.$state.go('group',{ groupId:_id});
+    };
 
-    getPosterURL(){
-        let posterURL = 'http://placehold.it/32x32';
-        if (this.event.hasOwnProperty('posters')) {
-            if (this.event.posters.hasOwnProperty('thumbnail')) {
-                posterURL = this.event.posters.thumbnail;
-            } else if (this.event.posters.hasOwnProperty('profile')) {
-                posterURL = this.event.posters.profile;
-            } else if (this.event.posters.hasOwnProperty('detailed')) {
-                posterURL = this.event.posters.detailed;
-            } else {
-                posterURL = this.event.posters.original;
-            }
-        }
-        return posterURL;
+    groupExists() {
+        return "undefined" !== typeof this.group;
     }
 
     static get $inject(){
