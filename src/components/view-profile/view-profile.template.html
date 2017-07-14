@@ -36,7 +36,7 @@
                 </div>
                 <div>
                     <span class="md-title">Username: </span>
-                    <span class="md-subhead">{{$ctrl.getCurrentUser()}}</span>
+                    <span class="md-subhead">{{$ctrl.user.username}}</span>
                 </div>
                 <div ng-if="!$ctrl.isOwnProfile()">
                     <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.addMentor()">Add as Mentor</md-button>
@@ -52,7 +52,7 @@
                 <div layout="row">
                     <div layout="column" flex="50">
                         <div>
-                            <h4 class="md-headline">{{$ctrl.model.vorname}} {{$ctrl.model.surname}}</h4>
+                            <h3 class="md-headline">{{$ctrl.model.vorname}} {{$ctrl.model.surname}}</h3>
                             <p class="md-body-1">{{$ctrl.model.bio}}</p>
                         </div>
                         <div>

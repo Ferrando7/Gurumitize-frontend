@@ -37,7 +37,6 @@ class ViewGroupsComponentController{
         this.groupsview=this.groups.filter(function(g){
             return g.title.indexOf(searchkey)>=0;
         });
-        console.log(this.groupsview);
     };
     details (group) {
         let _id = group['_id'];

@@ -44,6 +44,11 @@ function resolveUser($stateParams,userService){
     return userService.get($stateParams.userId);
 }
 
+resolveUsers.$inject = [UserService.name];
+function resolveUsers(userService){
+    return userService.list();
+}
+
 config.$inject = ['$stateProvider', '$urlRouterProvider'];
 export default function config ($stateProvider, $urlRouterProvider){
 
@@ -119,7 +124,8 @@ export default function config ($stateProvider, $urlRouterProvider){
             url: '/groups/:groupId',
             component: GroupComponent.name,
             resolve: {
-                group : resolveGroup
+                group : resolveGroup,
+                users : resolveUsers
             }
 
         })
