@@ -21,6 +21,11 @@
             <md-icon><ng-md-icon icon="group_add" ></ng-md-icon></md-icon>
             <h2>Create group</h2>
         </a>
+
+        <a ui-sref="friends" layout="row" ng-if="$ctrl.isAuthenticated()" layout-margin>
+            <md-icon><ng-md-icon icon="group_add" ></ng-md-icon></md-icon>
+            <h2>Add Mentor/Mentee</h2>
+        </a>
         <span flex></span>
 
         <span flex="5"></span>
