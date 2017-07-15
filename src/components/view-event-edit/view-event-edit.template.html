@@ -7,23 +7,26 @@
                 <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
                 <input ng-model="$ctrl.model.title" type="text">
             </md-input-container>
-            <form name="groupForm">
-                 <md-autocomplete class="md-icon-float md-block"
-                        md-input-name="autocompleteField"
-                        md-selected-item="$ctrl.group"
-                        md-search-text="$ctrl.searchText"
-                        md-items="group in $ctrl.getMatches($ctrl.searchText)"
-                        md-item-text="group.title"
-                        md-require-match
-                        md-floating-label="Group">
-                        <md-item-template>
-                            <span md-highlight-text="$ctrl.searchText">{{group.title}}</span>
-                        </md-item-template>
-                        <div ng-messages="searchForm.autocompleteField.$error" ng-if="groupForm.autocompleteField.$touched">
-                            <div ng-message="md-require-match">Please select an existing group.</div>
-                        </div>
-                </md-autocomplete>
-            </form>
+            <div layout-align="start start" layout="row">
+                <!--<md-icon style="color:black"><ng-md-icon icon="group"></ng-md-icon></md-icon>-->
+                <form name="groupForm">
+                     <md-autocomplete id="custom" class="md-icon-float md-block"
+                            md-input-name="autocompleteField"
+                            md-selected-item="$ctrl.group"
+                            md-search-text="$ctrl.searchText"
+                            md-items="group in $ctrl.getMatches($ctrl.searchText)"
+                            md-item-text="group.title"
+                            md-require-match
+                            md-floating-label="Group">
+                            <md-item-template>
+                                <span md-highlight-text="$ctrl.searchText">{{group.title}}</span>
+                            </md-item-template>
+                            <div ng-messages="groupForm.autocompleteField.$error" ng-if="groupForm.autocompleteField.$touched">
+                                <div ng-message="md-require-match">Please select an existing group.</div>
+                            </div>
+                    </md-autocomplete>
+                </form>
+            </div>
             <md-input-container class="md-icon-float md-block">
                 <label>Location</label>
                 <md-icon><ng-md-icon icon="location_on" ></ng-md-icon></md-icon>

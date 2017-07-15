@@ -6,10 +6,12 @@
         <p> {{event.title}} </p>
 
         <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit(event)" >
+            <md-tooltip md-direction="bottom" md-delay="1000">Edit Event</md-tooltip>
             <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
         </md-button>
 
-        <md-button class="md-icon-button"aria-label="Delete Item" ng-click="$ctrl.delete(event)" >
+        <md-button class="md-icon-button"aria-label="Delete Event" ng-click="$ctrl.delete(event)" >
+            <md-tooltip md-direction="bottom" md-delay="1000">Delete Event</md-tooltip>
             <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
         </md-button>
         <md-divider ng-if="!$last"></md-divider>
