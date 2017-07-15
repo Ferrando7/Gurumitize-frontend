@@ -1,38 +1,54 @@
-</md-card>
-<md-card-content>
-    <div layout="column" layout-padding>
-        </md-content>
-        <div layout="row" layout-padding>
-            <span class="md-headline">{{$ctrl.group.title}}</span>
-            <md-card-content>
-                <p>{{$ctrl.group.description}}</p>
-            </md-card-content>
-            <md-chips ng-model="$ctrl.group.tags" readonly="true" md-removable="false">
-                <div>{{$chip}}</div>
-            </md-chips>
+<div layout="column">
+    <div layout="row" layout-padding layout-align="start center">
+        <div flex="70">
+            <h1 class="md-headline">{{$ctrl.group.title}}</h1>
         </div>
-        </md-content>
-        <md-card-actions layout="row" layout-align="end center">
+        <div layout="row" layout-padding layout-align="end center" flex="30">
             <div ng-if="!$ctrl.isJoined()">
                 <md-button class="md-icon-button" aria-label="Join Group" ng-click="$ctrl.join()" >
+                    <md-tooltip md-direction="bottom" md-delay="1000">Join Group</md-tooltip>
                     <md-icon><ng-md-icon icon="person_add"></ng-md-icon></md-icon>
                 </md-button>
             </div>
-
             <div ng-if="$ctrl.isJoined()">
                 <md-button class="md-icon-button" aria-label="Leave Group" ng-click="$ctrl.leave()" >
+                    <md-tooltip md-direction="bottom" md-delay="1000">Leave Group</md-tooltip>
                     <md-icon><ng-md-icon icon="person_outline"></ng-md-icon></md-icon>
                 </md-button>
+                <md-button class="md-icon-button" aria-label="Edit Group" ng-click="$ctrl.edit()" >
+                    <md-tooltip md-direction="bottom" md-delay="1000">Edit Group</md-tooltip>
+                    <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
+                </md-button>
+                <md-button class="md-icon-button"aria-label="Delete Group" ng-click="$ctrl.delete()" >
+                    <md-tooltip md-direction="bottom" md-delay="1000">Delete Group</md-tooltip>
+                    <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
+                </md-button>
             </div>
-
-            <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit()" >
-                <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
-            </md-button>
-
-            <md-button class="md-icon-button"aria-label="Delete Item" ng-click="$ctrl.delete()" >
-                <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
-            </md-button>
-        </md-card-actions>
+        </div>
     </div>
-</md-card-content>
-</md-card>
+    <div layout="row" flex="60">
+        <div layout="column" layout-padding layout-align="start start" flex>
+            <md-content class="md-no-momentum">
+                <h3 class="md-title">Description</h3>
+                <p class="md-body-2">{{$ctrl.group.description}}</p>
+            </md-content>
+            <md-content class="md-no-momentum">
+                <h3 class="md-title">Tags </h3>
+                <md-chips ng-model="$ctrl.group.tags" readonly="true" md-removable="false">
+                    <div>{{$chip}}</div>
+                </md-chips>
+            </md-content>
+        </div>
+        <div layout="column" layout-padding layout-align="start start" flex>
+            <md-content class="md-no-momentum">
+                <h3 class="md-title">Members</h3>
+                <md-list>
+                    <md-list-item ng-click="$ctrl.toUser(member)" aria-label="Members" ng-repeat="member in $ctrl.members">
+                        <p class="md-body-2">{{member.vorname}} {{member.surname}}</p>
+                        <md-divider></md-divider>
+                    </md-list-item>
+                </md-list>
+            </md-content>
+        </div>
+    </div>
+</div>
