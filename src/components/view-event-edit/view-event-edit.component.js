@@ -2,6 +2,7 @@
 'use strict';
 
 import template from './view-event-edit.template.html';
+import './view-event-edit.style.css';
 
 import EventsService from './../../services/events/events.service';
 import GroupsService from './../../services/groups/groups.service';

@@ -4,10 +4,11 @@
         <span flex="35"></span>
         <md-card flex="30">
             <md-card-content>
+                <h2 class="md-headline">Register</h2>
                 <form name="RegisterForm">
                     <md-input-container class="md-block">
                         <label>Username</label>
-                        <input type="text" name="username" ng-model="$ctrl.register.username" placeholder="login" required minlength="6" ng-pattern="^[a-zA-Z0-9]+$"/>
+                        <input type="text" name="username" ng-model="$ctrl.register.username" required minlength="6" ng-pattern="^[a-zA-Z0-9]+$"/>
                         <div ng-messages="RegisterForm.username.$error">
                             <div ng-message="required">Please enter the username you want to use.</div>
                             <div ng-message="minlength">Username must be at least 6 characters long.</div>
@@ -16,7 +17,7 @@
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>Password</label>
-                        <input type="password" name="password" ng-model="$ctrl.register.password" placeholder="password" required minlength="6" md-maxlength="64" ng-pattern="^[a-zA-Z0-9]+$"/>
+                        <input type="password" name="password" ng-model="$ctrl.register.password" required minlength="6" md-maxlength="64" ng-pattern="^[a-zA-Z0-9]+$"/>
                         <div ng-messages="RegisterForm.password.$error">
                             <div ng-message="required">Please enter your password.</div>
                             <div ng-message="minlength">Password must be at least 6 characters long.</div>
@@ -25,15 +26,15 @@
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>First name</label>
-                        <input type="text" name="firstName" ng-model="$ctrl.register.vorname" placeholder="first name">
+                        <input type="text" name="firstName" ng-model="$ctrl.register.vorname">
                     </md-input-container>
                     <md-input-container>
                         <label>Last name</label>
-                        <input type="text" name="lastName" ng-model="$ctrl.register.surname" placeholder="last name">
+                        <input type="text" name="lastName" ng-model="$ctrl.register.surname">
                     </md-input-container>
                     <md-input-container>
                         <label>Email</label>
-                        <input type="email" name="email" ng-model="$ctrl.register.email" placeholder="email" required/>
+                        <input type="email" name="email" ng-model="$ctrl.register.email" required/>
                         <div ng-messages="RegisterForm.email.$error">
                             <div ng-message="required">Please enter a valid email address.</div>
                             <div ng-message="email">The email has to be on the format abc@def.ghi</div>

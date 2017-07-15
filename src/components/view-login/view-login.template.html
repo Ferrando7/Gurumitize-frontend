@@ -4,17 +4,18 @@
         <span flex="35"></span>
         <md-card flex="30">
             <md-card-content>
+                <h2 class="md-headline">Login</h2>
                 <form name="LoginForm">
                     <md-input-container class="md-block">
-                        <label>Login</label>
-                        <input type="text" name="username" ng-model="$ctrl.login.username" placeholder="login" required=""/>
+                        <label>Username</label>
+                        <input type="text" name="username" ng-model="$ctrl.login.username" required=""/>
                         <div ng-messages="LoginForm.username.$error" role="alert" multiple="">
                             <div ng-message="required">Please enter your username.</div>
                         </div>
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label>Password</label>
-                        <input type="password" name="password" ng-model="$ctrl.login.password" placeholder="password" required="" md-maxlength="64"/>
+                        <input type="password" name="password" ng-model="$ctrl.login.password" required="" md-maxlength="64"/>
                         <div ng-messages="LoginForm.password.$error" role="alert" multiple="">
                             <div ng-message="required">Please enter your password.</div>
                         </div>

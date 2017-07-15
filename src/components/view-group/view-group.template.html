@@ -1,25 +1,29 @@
 <div layout="column">
     <div layout="row" layout-padding layout-align="start center">
         <div flex="70">
-            <h2 class="md-headline">{{$ctrl.group.title}}</h2>
+            <h1 class="md-headline">{{$ctrl.group.title}}</h1>
         </div>
         <div layout="row" layout-padding layout-align="end center" flex="30">
             <div ng-if="!$ctrl.isJoined()">
                 <md-button class="md-icon-button" aria-label="Join Group" ng-click="$ctrl.join()" >
+                    <md-tooltip md-direction="bottom" md-delay="1000">Join Group</md-tooltip>
                     <md-icon><ng-md-icon icon="person_add"></ng-md-icon></md-icon>
                 </md-button>
             </div>
             <div ng-if="$ctrl.isJoined()">
                 <md-button class="md-icon-button" aria-label="Leave Group" ng-click="$ctrl.leave()" >
+                    <md-tooltip md-direction="bottom" md-delay="1000">Leave Group</md-tooltip>
                     <md-icon><ng-md-icon icon="person_outline"></ng-md-icon></md-icon>
                 </md-button>
+                <md-button class="md-icon-button" aria-label="Edit Group" ng-click="$ctrl.edit()" >
+                    <md-tooltip md-direction="bottom" md-delay="1000">Edit Group</md-tooltip>
+                    <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
+                </md-button>
+                <md-button class="md-icon-button"aria-label="Delete Group" ng-click="$ctrl.delete()" >
+                    <md-tooltip md-direction="bottom" md-delay="1000">Delete Group</md-tooltip>
+                    <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
+                </md-button>
             </div>
-            <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit()" >
-                <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
-            </md-button>
-            <md-button class="md-icon-button"aria-label="Delete Item" ng-click="$ctrl.delete()" >
-                <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
-            </md-button>
         </div>
     </div>
     <div layout="row" flex="60">
@@ -41,6 +45,7 @@
                 <md-list>
                     <md-list-item ng-click="$ctrl.toUser(member)" aria-label="Members" ng-repeat="member in $ctrl.members">
                         <p class="md-body-2">{{member.vorname}} {{member.surname}}</p>
+                        <md-divider></md-divider>
                     </md-list-item>
                 </md-list>
             </md-content>
