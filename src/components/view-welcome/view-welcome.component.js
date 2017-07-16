@@ -31,6 +31,8 @@ class ViewWelcomeComponentController{
 
     }
 
+
+
     details (event) {
         let _id = event['_id'];
         this.$state.go('event',{ eventId:_id});
