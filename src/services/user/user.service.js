@@ -79,6 +79,11 @@ export default class UserService {
         this.$window.localStorage.removeItem('jwtToken');
     }
 
+    deleteUser(){
+        return this.$http.post(`${ this.API_URL }/user/unregister`, {
+        });
+    }
+
     getCurrentUser() {
         let token = this.$window.localStorage['jwtToken'];
         if (!token) return {};
