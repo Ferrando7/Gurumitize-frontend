@@ -3,7 +3,19 @@
     <md-list-item aria-label="Event" ng-click="$ctrl.details(event)" class="noright" ng-repeat="event in $ctrl.events">
         <md-icon><ng-md-icon icon="event_note"></ng-md-icon></md-icon>
 
-        <p> {{event.title}} </p>
+        <p>
+            {{event.title}}
+
+            <span>
+                <md-icon><ng-md-icon icon="location_on" ></ng-md-icon></md-icon>
+                {{event.location}}
+            </span>
+
+            <span>
+                start at:
+                    {{event.time}}
+            </span>
+        </p>
 
         <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit(event)" >
             <md-tooltip md-direction="bottom" md-delay="1000">Edit Event</md-tooltip>

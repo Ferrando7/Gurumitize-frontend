@@ -8,6 +8,7 @@ import GroupsComponent from './../components/view-groups/view-groups.component';
 import GroupComponent from './../components/view-group/view-group.component';
 import GroupEditComponent from './../components/view-group-edit/view-group-edit.component';
 import GroupCreateComponent from './../components/view-group-create/view-group-create.component';
+import FriendsComponent from './../components/view-friends/view-friends.component';
 import LoginComponent from './../components/view-login/view-login.component';
 import RegisterComponent from './../components/view-register/view-register.component';
 import ProfileComponent from './../components/view-profile/view-profile.component';
@@ -17,6 +18,7 @@ import WelcomeComponent from './../components/view-welcome/view-welcome.componen
 import EventsService from './../services/events/events.service';
 import GroupsService from './../services/groups/groups.service';
 import UserService from './../services/user/user.service'
+import FriendsService from './../services/friends/friends.service';
 
 
 resolveEvent.$inject = ['$stateParams', EventsService.name];
@@ -28,7 +30,10 @@ resolveEvents.$inject = [EventsService.name];
 function resolveEvents(eventsService){
     return eventsService.list();
 }
-
+resolveFriends.$inject = [FriendsService.name];
+function resolveFriends(friendsService){
+    return friendsService.list();
+}
 resolveGroup.$inject = ['$stateParams', GroupsService.name];
 function resolveGroup($stateParams,groupsService){
     return groupsService.get($stateParams.groupId);
@@ -119,6 +124,13 @@ export default function config ($stateProvider, $urlRouterProvider){
         .state('groupAdd', {
             url: '/groups/new',
             component: GroupCreateComponent.name
+        })
+        .state('friends', {
+            url: '/friends',
+            component: FriendsComponent.name,
+            resolve: {
+                friends : resolveFriends
+            }
         })
         .state('group', {
             url: '/groups/:groupId',

@@ -13,7 +13,7 @@ import ngMessages from 'angular-messages';
 import EventsService from './services/events/events';
 import GroupsService from './services/groups/groups';
 import UserService from './services/user/user';
-
+import FriendsService from './services/friends/friends';
 import Routes from './config/routes';
 import Middlewares from './config/middlewares';
 
@@ -26,6 +26,9 @@ import ViewGroups from './components/view-groups/view-groups';
 import ViewGroup from './components/view-group/view-group';
 import ViewGroupEdit from './components/view-group-edit/view-group-edit';
 import ViewGroupCreate from './components/view-group-create/view-group-create';
+import ViewFriends from './components/view-friends/view-friends';
+
+//import SkillCreate from './components/skill/skill';
 import ViewLogin from './components/view-login/view-login';
 import ViewRegister from './components/view-register/view-register';
 import ViewProfile from './components/view-profile/view-profile';
@@ -53,7 +56,9 @@ let app = angular.module('app', [
     ViewLogin.name,
     ViewProfile.name,
     ViewProfileEdit.name,
-    ViewWelcome.name
+    ViewWelcome.name,
+    ViewFriends.name,
+    FriendsService.name
 ]);
 
 app.constant('API_URL', 'http://localhost:3000/api');

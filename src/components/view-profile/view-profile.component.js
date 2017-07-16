@@ -77,6 +77,13 @@ class ViewProfileComponentController{
 
     };
 
+    deleteUser() {
+        this.UserService.deleteUser().then(()=> {
+            this.UserService.logout();
+            this.$state.go('welcome',{});
+        });
+    };
+
     isOwnProfile() {
         let modelId = this.model['_id'];
         let currentId = this.UserService.getCurrentUser()._id;
