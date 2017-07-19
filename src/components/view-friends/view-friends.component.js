@@ -44,8 +44,13 @@ class ViewfriendsComponentController{
         for(var i = 0; i < this.users.length; i++){
             if(this.containsObject(this.users[i]._id, this.current.mentors)){
                 this.mentors.push(this.users[i]);
+
+                if(this.containsObject(this.users[i]._id, this.current.mentees)){
+                    this.mentees.push(this.users[i]);
+                }
             }
-            if(this.containsObject(this.users[i]._id, this.current.mentees)){
+
+            else if(this.containsObject(this.users[i]._id, this.current.mentees)){
                 this.mentees.push(this.users[i]);
             }
             else if(this.users[i]._id === this.current._id){}
