@@ -104,7 +104,8 @@ export default function config ($stateProvider, $urlRouterProvider){
             url: '/profile/:userId',
             component: ProfileComponent.name,
             resolve: {
-                user : resolveUser
+                user : resolveUser,
+                users: resolveUsers
             }
         })
         .state('profileEdit', {

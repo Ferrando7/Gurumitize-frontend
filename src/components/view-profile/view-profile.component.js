@@ -12,6 +12,7 @@ class ViewProfileComponent {
         this.template = template;
         this.bindings = {
             user: '<',
+            users: '<',
         }
     }
 
@@ -23,6 +24,7 @@ class ViewProfileComponent {
 class ViewProfileComponentController{
     constructor($state,UserService){
         this.model = {};
+        this.current = {};
         //this.group = {};
         this.$state = $state;
         //this.GroupsService = GroupsService;
@@ -32,14 +34,43 @@ class ViewProfileComponentController{
 
     $onInit() {
         this.model = JSON.parse(JSON.stringify(this.user));
+        for(var i = 0; i < this.users.length; i++){
+            if(this.users[i]._id === this.UserService.getCurrentUser()._id){
+                this.current = this.users[i];
+                break;
+            }
+        }
+        console.log(this.current)
     }
 
     addMentor() {
+        this.model['mentees'].push(this.current._id);
+        this.current.mentors.push(this.model['_id']);
 
+        this.UserService.update(this.model).then(data => {
+            let _id = this.model['_id'];
+            this.$state.go('profile',{ userId:_id});
+        });
+
+        this.UserService.update(this.current).then(data => {
+            let _id = this.model['_id'];
+            this.$state.go('profile',{ userId:_id});
+        });
     };
 
     addMentee() {
+        this.model['mentors'].push(this.current._id);
+        this.current.mentees.push(this.model['_id']);
 
+        this.UserService.update(this.model).then(data => {
+            let _id = this.model['_id'];
+            this.$state.go('profile',{ userId:_id});
+        });
+
+        this.UserService.update(this.current).then(data => {
+            let _id = this.model['_id'];
+            this.$state.go('profile',{ userId:_id});
+        });
     };
     /*To-do
      Show the groups the user belongs to
