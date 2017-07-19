@@ -12,6 +12,7 @@ class ViewProfileComponent {
         this.template = template;
         this.bindings = {
             user: '<',
+            users: '<',
         }
     }
 
@@ -23,6 +24,7 @@ class ViewProfileComponent {
 class ViewProfileComponentController{
     constructor($state,UserService){
         this.model = {};
+        this.current = {};
         //this.group = {};
         this.$state = $state;
         //this.GroupsService = GroupsService;
@@ -32,20 +34,80 @@ class ViewProfileComponentController{
 
     $onInit() {
         this.model = JSON.parse(JSON.stringify(this.user));
+        for(var i = 0; i < this.users.length; i++){
+            if(this.users[i]._id === this.UserService.getCurrentUser()._id){
+                this.current = this.users[i];
+                break;
+            }
+        }
     }
 
     addMentor() {
+        this.model['mentees'].push(this.current._id);
+        this.current.mentors.push(this.model['_id']);
 
+        this.UserService.update(this.model).then(data => {
+            let _id = this.model['_id'];
+            this.$state.go('profile',{ userId:_id});
+        });
+
+        this.UserService.update(this.current).then(data => {
+            let _id = this.model['_id'];
+            this.$state.go('profile',{ userId:_id});
+        });
     };
+
+    removeMentor() {
+        let menteeIndex = this.model['mentees'].indexOf(this.current._id);
+        let mentorIndex = this.current.mentors.indexOf(this.model['_id']);
+
+        this.model['mentees'].splice(menteeIndex,1);
+        this.current.mentors.splice(mentorIndex,1);
+
+        this.UserService.update(this.model).then(data => {
+            let _id = this.model['_id'];
+            this.$state.go('profile',{ userId:_id});
+        });
+
+        this.UserService.update(this.current).then(data => {
+            let _id = this.model['_id'];
+            this.$state.go('profile',{ userId:_id});
+        });
+    }
 
     addMentee() {
+        this.model['mentors'].push(this.current._id);
+        this.current.mentees.push(this.model['_id']);
 
+        this.UserService.update(this.model).then(data => {
+            let _id = this.model['_id'];
+            this.$state.go('profile',{ userId:_id});
+        });
+
+        this.UserService.update(this.current).then(data => {
+            let _id = this.model['_id'];
+            this.$state.go('profile',{ userId:_id});
+        });
     };
-    /*To-do
-     Show the groups the user belongs to
-     Show the skill
-     Add a profile picture
-      */
+
+    removeMentee() {
+        let mentorIndex = this.model['mentors'].indexOf(this.current._id);
+        let menteeIndex = this.current.mentees.indexOf(this.model['_id']);
+
+        this.model['mentors'].splice(mentorIndex,1);
+        this.current.mentees.splice(menteeIndex,1);
+
+        this.UserService.update(this.model).then(data => {
+            let _id = this.model['_id'];
+            this.$state.go('profile',{ userId:_id});
+        });
+
+        this.UserService.update(this.current).then(data => {
+            let _id = this.model['_id'];
+            this.$state.go('profile',{ userId:_id});
+        });
+    }
+
     getCurrentUser(){
         let user = this.UserService.getCurrentUser();
         return user.username;
@@ -89,6 +151,25 @@ class ViewProfileComponentController{
         let currentId = this.UserService.getCurrentUser()._id;
 
         return modelId === currentId;
+    }
+
+    isMentor() {
+        return this.containsObject(this.model['_id'], this.current.mentors);
+    }
+
+    isMentee() {
+        return this.containsObject(this.model['_id'], this.current.mentees);
+    }
+
+    containsObject(obj, list) {
+        var i;
+        for (i = 0; i < list.length; i++) {
+            if (list[i] === obj) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 

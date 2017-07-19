@@ -104,7 +104,8 @@ export default function config ($stateProvider, $urlRouterProvider){
             url: '/profile/:userId',
             component: ProfileComponent.name,
             resolve: {
-                user : resolveUser
+                user : resolveUser,
+                users: resolveUsers
             }
         })
         .state('profileEdit', {
@@ -129,7 +130,7 @@ export default function config ($stateProvider, $urlRouterProvider){
             url: '/friends',
             component: FriendsComponent.name,
             resolve: {
-                friends : resolveFriends
+                users : resolveUsers
             }
         })
         .state('group', {

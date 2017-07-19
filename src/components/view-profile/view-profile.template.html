@@ -39,8 +39,18 @@
                     <span class="md-subhead">{{$ctrl.user.username}}</span>
                 </div>
                 <div ng-if="!$ctrl.isOwnProfile()">
-                    <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.addMentor()">Add as Mentor</md-button>
-                    <md-button class="md-raised md-primary" ng-click="$ctrl.addMentee()">Add as Mentee</md-button>
+                    <div ng-if="!$ctrl.isMentor()">
+                        <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.addMentor()">Add as Mentor</md-button>
+                    </div>
+                    <div ng-if="$ctrl.isMentor()">
+                        <md-button class="md-raised md-accent" type="submit" ng-click="$ctrl.removeMentor()">Remove Mentor</md-button>
+                    </div>
+                    <div ng-if="!$ctrl.isMentee()">
+                        <md-button class="md-raised md-primary" ng-click="$ctrl.addMentee()">Add as Mentee</md-button>
+                    </div>
+                    <div ng-if="$ctrl.isMentee()">
+                        <md-button class="md-raised md-accent" ng-click="$ctrl.removeMentee()">Remove Mentee</md-button>
+                    </div>
                 </div>
                 <div ng-if="$ctrl.isOwnProfile()">
                     <md-button class="md-raised" ng-click="$ctrl.edit()">
