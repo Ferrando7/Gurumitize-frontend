@@ -130,7 +130,7 @@ export default function config ($stateProvider, $urlRouterProvider){
             url: '/friends',
             component: FriendsComponent.name,
             resolve: {
-                friends : resolveFriends
+                users : resolveUsers
             }
         })
         .state('group', {

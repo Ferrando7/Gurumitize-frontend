@@ -1,0 +1,50 @@
+<div layout="row" layout-align="start start" layout-padding flex>
+    <div layout="column">
+        <h3 class="md-headline">Mentors</h3>
+        <md-list>
+            <md-list-item aria-label="Mentor" ng-click="$ctrl.goTo(user)" class="noright" ng-repeat="user in $ctrl.mentors">
+                <md-icon><ng-md-icon icon="person"></ng-md-icon></md-icon>
+
+                <p>
+                    {{user.vorname}} {{user.surname}}
+                </p>
+
+                <md-divider ng-if="!$last"></md-divider>
+            </md-list-item>
+            <md-divider></md-divider>
+        </md-list>
+    </div>
+
+    <div layout="column">
+        <h3 class="md-headline">Mentees</h3>
+        <md-list>
+            <md-list-item aria-label="Mentee" ng-click="$ctrl.goTo(user)" class="noright" ng-repeat="user in $ctrl.mentees">
+                <md-icon><ng-md-icon icon="person"></ng-md-icon></md-icon>
+
+                <p>
+                    {{user.vorname}} {{user.surname}}
+                </p>
+
+                <md-divider ng-if="!$last"></md-divider>
+            </md-list-item>
+            <md-divider></md-divider>
+        </md-list>
+    </div>
+
+    <div layout="column">
+        <h3 class="md-headline">Others</h3>
+        <md-list>
+            <md-list-item aria-label="Other User" ng-click="$ctrl.goTo(user)" class="noright" ng-repeat="user in $ctrl.others">
+                <md-icon><ng-md-icon icon="person"></ng-md-icon></md-icon>
+
+                <p>
+                    {{user.vorname}} {{user.surname}}
+                </p>
+
+                <md-divider ng-if="!$last"></md-divider>
+            </md-list-item>
+            <md-divider></md-divider>
+        </md-list>
+    </div>
+</div>
+

@@ -11,7 +11,7 @@ class ViewfriendsComponent {
         this.controller = ViewfriendsComponentController;
         this.template = template;
         this.bindings = {
-            friends: '<',
+            users: '<',
         }
     }
 
@@ -29,9 +29,33 @@ class ViewfriendsComponentController{
         this.friendsService = friendsService;
         this.UserService = UserService;
 
+        this.current = {};
+        this.mentors = [];
+        this.mentees = [];
+        this.others = [];
     }
 
-    details (friends) {
+    $onInit(){
+        for(var i = 0; i < this.users.length; i++){
+            if(this.users[i]._id === this.UserService.getCurrentUser()._id){
+                this.current = this.users[i];
+            }
+        }
+        for(var i = 0; i < this.users.length; i++){
+            if(this.containsObject(this.users[i]._id, this.current.mentors)){
+                this.mentors.push(this.users[i]);
+            }
+            else if(this.containsObject(this.users[i]._id, this.current.mentees)){
+                this.mentees.push(this.users[i]);
+            }
+            else if(this.users[i]._id === this.current._id){}
+            else {
+                this.others.push(this.users[i]);
+            }
+        }
+    }
+
+    /*details (friends) {
         let _id = friends['_id'];
         this.$state.go('friends',{ friendsId:_id});
     };
@@ -59,7 +83,23 @@ class ViewfriendsComponentController{
         } else {
             this.$state.go('login',{});
         }
-    };
+    };*/
+
+    containsObject(obj, list) {
+        var i;
+        for (i = 0; i < list.length; i++) {
+            if (list[i] === obj) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    goTo(user) {
+        let _id = user._id;
+        this.$state.go('profile',{userId:_id})
+    }
 
 
     static get $inject(){
